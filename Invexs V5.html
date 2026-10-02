@@ -1,0 +1,3869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pixel XP Desktop</title>
+
+<style>
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: "04b03", monospace;
+    cursor: url("data:image/png;base64,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") 32 32, auto;
+    background: #000;
+}
+
+
+/* =========================================================
+   CURSOR PERSONALIZADO
+   Se aplica al fondo/escritorio. Los elementos interactivos
+   que ya usan cursor:pointer conservan su cursor de botón.
+========================================================= */
+
+.desktop {
+    cursor: url("data:image/png;base64,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") 32 32, auto;
+}
+
+
+/* =========================================================
+   VIDEO WALLPAPER
+========================================================= */
+
+#video-wallpaper,
+#video-wallpaper-next {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+    pointer-events: none;
+    background: #000;
+    opacity: 1;
+    transition: opacity 900ms ease-in-out;
+}
+#video-wallpaper-next { opacity: 0; }
+/* El fondo pulsa suavemente al ritmo de la música */
+#video-wallpaper, #video-wallpaper-next {
+    transform: translate(var(--music-shake-x, 0px), var(--music-shake-y, 0px)) scale(var(--music-pulse-scale, 1));
+    transform-origin: center center;
+    will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+    #video-wallpaper, #video-wallpaper-next { transition-duration: 1ms; }
+}
+
+
+/* =========================================================
+   DECORACIÓN
+   Se oculta porque ahora el fondo es el video
+========================================================= */
+
+.sun,
+.cloud,
+.cloud1,
+.cloud2 {
+    display: none;
+}
+
+
+/* Viñeta ambiental muy tenue: oscurece suavemente los bordes sin bloquear interacción */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1500;
+    background: radial-gradient(ellipse at center,
+        rgba(0, 0, 0, 0) 42%,
+        rgba(8, 5, 18, 0.16) 68%,
+        rgba(5, 3, 12, 0.42) 100%);
+}
+
+/* =========================================================
+   ESCRITORIO
+========================================================= */
+
+.desktop {
+    position: absolute;
+
+    inset: 0 0 42px 0;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   ICONOS
+========================================================= */
+
+.desktop-icon {
+    position: absolute;
+
+    width: 95px;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    text-shadow:
+        2px 2px #24516e;
+
+    padding: 5px;
+
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.desktop-icon img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.desktop-icon:hover {
+    background: rgba(70,150,220,.45);
+    outline: 1px dotted white;
+}
+
+/* =========================================================
+   ICONOS DEL ESCRITORIO — ARRASTRAR COMO EN WINDOWS
+========================================================= */
+.desktop-icon {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    cursor: default;
+}
+
+.desktop-icon.dragging {
+    cursor: grabbing;
+    z-index: 50;
+}
+
+.desktop-icon.dragging:hover {
+    background: rgba(70,150,220,.45);
+    outline: 1px dotted white;
+}
+
+.desktop-icon.selected {
+    background: rgba(70,150,220,.35);
+    outline: 1px dotted white;
+}
+
+.desktop-icon .icon-image {
+    font-size: 42px;
+    line-height: 48px;
+}
+
+/* Icono personalizado de Mis dibujos: PNG original 64x64 */
+.desktop-icon .icon-dibujos {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    line-height: 64px;
+}
+
+.desktop-icon .icon-dibujos img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    margin: 0 auto;
+}
+
+/* Icono personalizado de Mis archivos: PNG original 64x64 */
+.desktop-icon .icon-archivos {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    line-height: 64px;
+}
+
+.desktop-icon .icon-archivos img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    margin: 0 auto;
+}
+
+.icon1 {
+    left: 15px;
+    top: 20px;
+}
+
+.icon2 {
+    left: 15px;
+    top: 120px;
+}
+
+.icon3 {
+    left: 15px;
+    top: 220px;
+}
+
+.icon4 {
+    right: 15px;
+    top: 20px;
+}
+
+.icon5 {
+    right: 15px;
+    top: 120px;
+}
+
+
+/* =========================================================
+   VENTANAS
+========================================================= */
+
+.window {
+    position: absolute;
+
+    width: 430px;
+    height: 300px;
+
+    background: #d8d8d8;
+
+    border-top: 3px solid #eeeeee;
+    border-left: 3px solid #eeeeee;
+
+    border-right: 3px solid #303030;
+    border-bottom: 3px solid #303030;
+
+    box-shadow:
+        5px 6px 0 rgba(0,0,0,.35);
+
+    display: none;
+
+    z-index: 10;
+}
+
+.window.active {
+    z-index: 100;
+}
+
+
+/* =========================================================
+   BARRA DE TÍTULO
+========================================================= */
+
+.titlebar {
+    height: 29px;
+
+    background:
+        linear-gradient(
+            #2587df,
+            #0758a8
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 7px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: move;
+
+    border-bottom: 2px solid #064681;
+}
+
+.title {
+    flex: 1;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BOTONES DE VENTANA
+========================================================= */
+
+.window-buttons {
+    display: flex;
+    gap: 3px;
+    margin-right: 3px;
+}
+
+.win-button {
+    width: 22px;
+    height: 21px;
+
+    background: #c8d8e8;
+
+    color: #111;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+
+    font-family: Arial;
+
+    font-size: 13px;
+
+    text-align: center;
+
+    line-height: 16px;
+
+    cursor: pointer;
+}
+
+.win-button:active {
+    border-top: 2px solid #333;
+    border-left: 2px solid #333;
+
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.window-content {
+    height: calc(100% - 29px);
+
+    padding: 10px;
+
+    overflow: auto;
+
+    background: #eeeeee;
+}
+
+
+/* =========================================================
+   PAINT
+========================================================= */
+
+.paint-area {
+    width: 100%;
+    height: 205px;
+
+    background: white;
+
+    border-top: 3px solid #555;
+    border-left: 3px solid #555;
+
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.sky {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            #9de3ff 0 65%,
+            #75c968 65% 100%
+        );
+}
+
+.pixel-sun {
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+
+    right: 35px;
+    top: 25px;
+
+    background: #ffdc48;
+
+    box-shadow:
+        0 -7px #ffdc48,
+        0 7px #ffdc48,
+        -7px 0 #ffdc48,
+        7px 0 #ffdc48;
+}
+
+.tree {
+    position: absolute;
+
+    left: 40px;
+    bottom: 40px;
+
+    width: 15px;
+    height: 70px;
+
+    background: #824b29;
+
+    box-shadow:
+        -20px -35px #36a950,
+        0 -50px #42bd5a,
+        20px -35px #36a950,
+        -5px -65px #65d566;
+}
+
+.rabbit {
+    position: absolute;
+
+    left: 48%;
+    bottom: 40px;
+
+    font-size: 65px;
+
+    filter:
+        drop-shadow(3px 3px 0 #555);
+}
+
+.flower {
+    position: absolute;
+    font-size: 25px;
+}
+
+.flower1 {
+    bottom: 12px;
+    left: 20px;
+}
+
+.flower2 {
+    bottom: 10px;
+    right: 35px;
+}
+
+
+/* =========================================================
+   PALETA
+========================================================= */
+
+.palette {
+    height: 32px;
+
+    margin-top: 5px;
+
+    display: flex;
+
+    gap: 3px;
+
+    padding: 3px;
+
+    background: #bbb;
+
+    border-top: 2px solid #555;
+    border-left: 2px solid #555;
+
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.color {
+    width: 23px;
+    height: 23px;
+
+    border: 1px solid #333;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CARPETAS
+========================================================= */
+
+.folder-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.folder {
+    padding: 10px;
+
+    text-align: center;
+
+    background: #eee;
+
+    border: 2px solid transparent;
+
+    cursor: pointer;
+}
+
+.folder:hover {
+    border:
+        2px dotted #1858a0;
+
+    background: #d8ecff;
+}
+
+.folder-icon {
+    font-size: 42px;
+
+    display: block;
+}
+
+
+/* =========================================================
+   REPRODUCTOR PIXEL ART ORIGINAL
+========================================================= */
+
+.player {
+    position: relative;
+    width: 508px;
+    height: 96px;
+    margin: 70px auto 0 auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+    image-rendering: pixelated;
+}
+
+.pixel-player-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 508px;
+    height: 96px;
+    image-rendering: pixelated;
+    user-select: none;
+    pointer-events: none;
+}
+
+.player-image-pause {
+    display: none;
+}
+
+.player-hit {
+    position: absolute;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Zona de aleatorio, abajo a la izquierda */
+.player-shuffle {
+    left: 22px;
+    bottom: 6px;
+    width: 48px;
+    height: 26px;
+}
+
+/* Anterior / play-pause / siguiente */
+.player-prev {
+    left: 190px;
+    top: 50px;
+    width: 40px;
+    height: 36px;
+}
+
+.player-play {
+    position: absolute;
+    z-index: 20;
+    left: 222px;
+    top: 38px;
+    width: 68px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.player-next {
+    left: 278px;
+    top: 50px;
+    width: 40px;
+    height: 36px;
+}
+
+/* Zona clicable alineada sobre la línea de progreso */
+.player-seek {
+    left: 56px;
+    right: 56px;
+    top: 36px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 16;
+}
+
+.player-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MENÚ INICIO
+========================================================= */
+
+.start-menu {
+    position: fixed;
+
+    bottom: 42px;
+    left: 0;
+
+    width: 310px;
+
+    background: #eeeeee;
+
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+
+    border-right: 3px solid #333;
+    border-bottom: 3px solid #333;
+
+    z-index: 1000;
+
+    display: none;
+
+    box-shadow:
+        5px -5px 0 rgba(0,0,0,.3);
+}
+
+.start-menu.open {
+    display: block;
+}
+
+.start-header {
+    height: 58px;
+
+    background:
+        linear-gradient(
+            #398fe4,
+            #0758aa
+        );
+
+    color: white;
+
+    padding: 12px;
+
+    font-weight: bold;
+}
+
+.start-item {
+    padding: 12px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.start-item:hover {
+    background: #316ac5;
+
+    color: white;
+}
+
+
+/* =========================================================
+   BARRA DE TAREAS
+========================================================= */
+
+.taskbar {
+    position: fixed;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 56px;
+
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAABkCAYAAABn0C3cAAAEtUlEQVR42u3dMW4TURRA0R9rmnQsIQVsBrECGihZEkpFmw2wAfaQyoULFuAuXULlKEJRkB0H2fef0894/L67qze++PXl98MAAAAAAAAA4OytjAAAAAAAAACgQQAGAAAAAAAAiBCAAQAAAAAAACIEYAAAAAAAAIAIARgAAAAAAAAgYnmLm262a5MFAAAAAAAAeMHVu/dHv+fBAVjkBQAAAAAAADjcS8310Di8HPMhAAAAAAAAAHi9XZfdNwSv9vkA8RcAAAAAAADg/9m30S7HuAkAAAAAAAAAb2OfbeDFuAAAAAAAAABO39+LvM8F4dW/LgIAAAAAAADg9Dz3N76L4AsAAAAAAABwvjbb9eM28Mo4AAAAAAAAABoEYAAAAAAAAIAzt3vzswAMAAAAAAAAELDZrgVgAAAAAAAAgAoBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBCAAYAAAAAAACIEIABAAAAAAAAIgRgAAAAAAAAgAgBGAAAAAAAACBiMQIAAAAAAACA03Bze/2q620AAwAAAAAAAEQIwAAAAAAAAAARAjAAAAAAAABAhAAMAAAAAAAAECEAAwAAAAAAAEQIwAAAAAAAAAARAjAAAAAAAABAhAAMAAAAAAAAECEAAwAAAAAAAEQIwAAAAAAAAAARAjAAAAAAAABAhAAMAAAAAAAAECEAAwAAAAAAAEQIwAAAAAAAAAARAjAAAAAAAABAhAAMAAAAAAAAECEAAwAAAAAAAEQIwAAAAAAAAAARAjAAAAAAAABAhAAMAAAAAAAAECEAAwAAAAAAAEQIwAAAAAAAAAARAjAAAAAAAABAxGIEAAAAAAAAAPu5ub0+yeeyAQwAAAAAAAAQIQADAAAAAAAARAjAAAAAAAAAABECMAAAAAAAAECEAAwAAAAAAAAQIQADAAAAAAAARAjAAAAAAAAAABECMAAAAAAAAECEAAwAAAAAAAAQIQADAAAAAAAARAjAAAAAAAAAABEXnz58fpjxi99t7scYY3z9+M2vAAAAAAAAAGJ+/Pw+xhjj8mo17jb34/Jqjt3YKTeAdwc8yyEDAAAAAADAbJ62wJm64HQbwE/r/m4LGAAAAAAAAOiZcSF02hXYmda8AQAAAAAAYDaztsDVrAe9e9c3AAAAAAAA0DRjD/wDQbdZXaUsXhEAAAAASUVORK5CYII=");
+    background-size: 100% 100%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    border-top: none;
+
+    display: flex;
+
+    align-items: center;
+
+    z-index: 2000;
+    transform: translateY(calc(100% - 8px));
+    transition: transform .28s cubic-bezier(.2,.8,.25,1);
+    will-change: transform;
+}
+
+/* La barra se esconde casi por completo y deja una pequeña pestaña visible. */
+.taskbar.taskbar-visible,
+.taskbar:hover,
+.taskbar:focus-within {
+    transform: translateY(0);
+}
+
+/* Mantiene la pestaña inferior como zona sensible al mouse. */
+@media (pointer: fine) {
+    .taskbar {
+        pointer-events: auto;
+    }
+}
+
+.start-button {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0;
+    margin-right: 0;
+}
+.start-button svg { width: 23px; height: 23px; fill: currentColor; }
+.launcher-dock {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 46px;
+}
+.launcher {
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 11px;
+    background: rgba(255,255,255,.16);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background .15s, transform .15s;
+}
+.launcher:hover { background: rgba(255,255,255,.32); transform: translateY(-3px); }
+.launcher:active { transform: scale(.92); }
+
+
+.start-button:hover {
+    background:
+        linear-gradient(
+            #82e97c,
+            #2da237
+        );
+}
+
+.task-buttons {
+    display: none; /* Oculta las pestañas con títulos de ventanas en la barra */
+    /* display: flex; */
+    align-items: center;
+
+    gap: 4px;
+
+    margin-left: 5px;
+
+    height: 32px;
+
+    flex: 1;
+}
+
+.task-button {
+    min-width: 42px;
+    max-width: 90px;
+
+    height: 36px;
+
+    background:
+        linear-gradient(
+            #58a7e9,
+            #2474bd
+        );
+
+    color: white;
+
+    border-top: 2px solid #7ec8f9;
+    border-left: 2px solid #7ec8f9;
+
+    border-right: 2px solid #07509b;
+    border-bottom: 2px solid #07509b;
+
+    padding: 4px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+}
+
+.task-button.active {
+    background:
+        linear-gradient(
+            #1764ad,
+            #084987
+        );
+
+    border-top-color: #064078;
+    border-left-color: #064078;
+}
+
+
+
+/* =========================================================
+   CONTROL DE VOLUMEN — BARRA DE TAREAS
+========================================================= */
+
+.taskbar-right {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 5;
+}
+
+.volume-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.volume-button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    border-radius: 11px;
+    background: rgba(255,255,255,.16);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background .15s, transform .15s;
+}
+
+.volume-button:hover {
+    background: rgba(255,255,255,.32);
+    transform: translateY(-3px);
+}
+
+.volume-button:active {
+    transform: scale(.92);
+}
+
+.volume-button img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.volume-popup {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    width: 190px;
+    padding: 10px;
+    background: #d8d8d8;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #303030;
+    border-bottom: 3px solid #303030;
+    box-shadow: 5px 5px 0 rgba(0,0,0,.35);
+    display: none;
+    z-index: 5000;
+}
+
+.volume-popup.open {
+    display: block;
+}
+
+.volume-popup-title {
+    color: #111;
+    font-family: "04b03", monospace;
+    font-size: 11px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.volume-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-slider {
+    flex: 1;
+    width: 100%;
+    cursor: pointer;
+    accent-color: #6b24b9;
+}
+
+.volume-value {
+    width: 34px;
+    color: #111;
+    font-family: "04b03", monospace;
+    font-size: 10px;
+    text-align: right;
+}
+
+.volume-mute-button {
+    width: 100%;
+    height: 26px;
+    margin-top: 9px;
+    background: #c8d8e8;
+    color: #111;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    font-family: "04b03", monospace;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.volume-mute-button:active {
+    border-top-color: #333;
+    border-left-color: #333;
+    border-right-color: white;
+    border-bottom-color: white;
+}
+
+@media(max-width:700px) {
+    .taskbar-right {
+        right: 5px;
+    }
+
+    .volume-popup {
+        right: 0;
+        width: 175px;
+    }
+}
+
+.clock {
+    width: 90px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 16px;
+    font-family: "04b03", monospace;
+    font-weight: normal;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    text-shadow:
+        1px 1px 0 #000000,
+        2px 2px 0 rgba(0, 0, 0, 0.65);
+
+    image-rendering: pixelated;
+    -webkit-font-smoothing: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:700px) {
+
+    .window {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .desktop-icon {
+        transform: scale(.8);
+    }
+
+    .icon4,
+    .icon5 {
+        display: none;
+    }
+
+    .task-button {
+        min-width: 90px;
+    }
+}
+
+
+
+
+
+.pixel-progress {
+    position: absolute;
+    z-index: 15;
+    left: 56px;
+    top: 44px;
+    width: 0px;
+    height: 4px;
+    background: #dca0ff;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+
+.pixel-progress::after {
+    content: "";
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: #e6b5ff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 5px rgba(230, 181, 255, 0.6);
+    image-rendering: pixelated;
+}
+
+
+.player-meta {
+    position: absolute;
+    z-index: 12;
+    left: 20px;
+    top: 8px;
+    width: 468px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    pointer-events: none;
+    font-family: "04b03", monospace;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000000;
+    text-shadow: 2px 2px #4b176d, 4px 4px #4b176d;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.player-meta span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#songTitle { max-width: 290px; text-align: center; }
+#songArtist { max-width: 164px; opacity: .9; text-align: center; }
+
+.player-time {
+    #duration {
+    transform: translateX(20px);
+}
+    position: absolute;
+    z-index: 12;
+    left: 56px;
+    top: 72px;
+    width: 396px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    font-family: "04b03", monospace;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000000;
+    text-shadow: 2px 2px #4b176d, 4px 4px #4b176d;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    white-space: nowrap;
+}
+
+
+/* ===== ANIMACIÓN ABSORCIÓN REPRODUCTOR ===== */
+#music .player{transform-origin:center center;}
+#music.music-absorbing-in .player{animation:musicAbsorbIn .38s cubic-bezier(.18,.8,.25,1) forwards;}
+#music.music-absorbing-out .player{animation:musicAbsorbOut .32s cubic-bezier(.7,0,.9,.25) forwards;}
+@keyframes musicAbsorbIn{0%{opacity:0;transform:scale(.05,.05) rotate(-2deg);filter:blur(8px)}45%{opacity:1;transform:scale(1.08,.85) rotate(0);filter:blur(1px)}70%{transform:scale(.97,1.04);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes musicAbsorbOut{0%{opacity:1;transform:scale(1);filter:blur(0)}25%{opacity:1;transform:scale(.96,.96);filter:blur(.5px)}55%{opacity:.9;transform:scale(.62,.48);filter:blur(2px)}78%{opacity:.55;transform:scale(.25,.16);filter:blur(5px)}100%{opacity:0;transform:scale(.02,.02);filter:blur(10px)}}
+</style>
+    <link href="https://fonts.cdnfonts.com/css/04b03" rel="stylesheet">
+
+
+<style>
+/* La ventana de Música ahora muestra solamente el reproductor pixel art */
+#music {
+    width: 508px !important;
+    height: 96px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+#music .window-content {
+    width: 508px !important;
+    height: 96px !important;
+    box-sizing: border-box;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+}
+
+#music .player {
+    width: 508px !important;
+    height: 96px !important;
+    margin: 0 !important;
+}
+</style>
+
+<style>
+/* Música: únicamente el reproductor pixel art */
+#music {
+    width: 508px !important;
+    height: 96px !important;
+    min-width: 508px !important;
+    min-height: 96px !important;
+    max-width: 508px !important;
+    max-height: 96px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+}
+#music .window-content {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 508px !important;
+    height: 96px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: 0 !important;
+}
+#music .player {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 508px !important;
+    height: 96px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+#music .pixel-player-image {
+    width: 508px !important;
+    height: 96px !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+/* Zonas invisibles sobre los iconos que YA están dibujados en tu imagen */
+.pixel-window-controls {
+    position: absolute;
+    z-index: 60;
+    left: 0;
+    top: 0;
+    width: 508px;
+    height: 96px;
+    pointer-events: none;
+}
+.pixel-window-button {
+    position: absolute;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.pixel-minimize { left: 416px; top: 0; width: 18px; height: 16px; }
+.pixel-maximize { left: 437px; top: 0; width: 18px; height: 16px; }
+.pixel-close { left: 458px; top: 0; width: 22px; height: 18px; }
+</style>
+
+
+<style id="pixel-window-controls-style">
+/* Zonas transparentes sobre los iconos que ya existen en la imagen */
+#music .pixel-window-controls {
+  position:absolute !important;
+  z-index:100 !important;
+  inset:0 !important;
+  width:508px !important;
+  height:96px !important;
+  pointer-events:none;
+}
+#music .pixel-window-button {
+  position:absolute !important;
+  display:block !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+}
+#music .pixel-minimize { left:416px !important; top:1px !important; width:18px !important; height:15px !important; }
+#music .pixel-maximize { left:437px !important; top:1px !important; width:18px !important; height:15px !important; }
+#music .pixel-close    { left:458px !important; top:1px !important; width:22px !important; height:17px !important; }
+
+#music.pixel-hidden {
+  display:none !important;
+}
+#music.pixel-maximized {
+  position:fixed !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:99999 !important;
+}
+</style>
+
+
+<style id="play-pause-hitbox-fix">
+#music .player-play {
+    position: absolute !important;
+    z-index: 120 !important;
+    left: 220px !important;
+    top: 37px !important;
+    width: 70px !important;
+    height: 55px !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+}
+#music .player-image-play,
+#music .player-image-pause {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 508px !important;
+    height: 96px !important;
+    object-fit: contain !important;
+    image-rendering: pixelated !important;
+}
+</style>
+
+
+<style id="pixel-control-hitbox-alignment">
+/* Hitboxes ajustadas a los símbolos dibujados en el PNG 508x96 */
+#music .player-prev {
+  left: 196px !important;
+  top: 54px !important;
+  width: 34px !important;
+  height: 34px !important;
+  z-index: 125 !important;
+}
+#music .player-play {
+  left: 232px !important;
+  top: 54px !important;
+  width: 34px !important;
+  height: 34px !important;
+  z-index: 126 !important;
+}
+#music .player-next {
+  left: 267px !important;
+  top: 54px !important;
+  width: 34px !important;
+  height: 34px !important;
+  z-index: 125 !important;
+}
+/* La barra de búsqueda no debe tapar los botones */
+#music .player-seek { z-index: 15 !important; }
+</style>
+
+<style id="music-color-themes">
+/* Nuevo diseño del reproductor (PNG proporcionado, 508x96); las paletas se ajustan por canción. */
+#music .pixel-player-image { transition: filter 350ms ease; }
+#music.theme-blue .pixel-player-image { filter: hue-rotate(300deg) saturate(1.12); }
+#music.theme-red .pixel-player-image { filter: hue-rotate(78deg) saturate(1.2); }
+#music.theme-blue .pixel-progress { background: #70c9ff; }
+#music.theme-blue .pixel-progress::after { background: #b8e7ff; box-shadow: 0 0 5px rgba(112,201,255,.65); }
+#music.theme-red .pixel-progress { background: #ff7777; }
+#music.theme-red .pixel-progress::after { background: #ffc0c0; box-shadow: 0 0 5px rgba(255,119,119,.65); }
+#music.theme-random .pixel-player-image {
+    filter: hue-rotate(var(--player-hue)) saturate(1.2);
+}
+#music.theme-random .pixel-progress {
+    background: var(--player-main-color);
+}
+#music.theme-random .pixel-progress::after {
+    background: var(--player-light-color);
+    box-shadow: 0 0 5px var(--player-main-color);
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     VIDEO WALLPAPER
+====================================================== -->
+
+<video
+    id="video-wallpaper"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+>
+    <source src="../Fondowallpaper/Wallpaper.mp4" type="video/mp4">
+</video>
+<video
+    id="video-wallpaper-next"
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-hidden="true"
+></video>
+
+
+<!-- ======================================================
+     ESCRITORIO
+====================================================== -->
+
+<div class="desktop">
+
+
+    <!-- ICONO PAINT -->
+
+    <div
+        class="desktop-icon icon1"
+        ondblclick="openWindow('paint')"
+    >
+
+        <div class="icon-image">🎨</div>
+
+        Mi Paint
+
+    </div>
+
+
+    <!-- ICONO CARPETAS -->
+
+    <div
+        class="desktop-icon icon2"
+        ondblclick="openWindow('files')"
+    >
+
+        <div class="icon-image icon-archivos">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABRtJREFUeJztW01oHDcU/jwar9e7y7oNtROXpizGJIeQgk1DMYTkUugpEOjfpYEeS6GQU3sNFHIrFHrIrZBT6KUEQ3JPCDU5tOTPDgQnKWmbhvy0rt24aTLS9DArrWZW0mg03p2drT9YPKvVe5r39PTepxkZ+J9jRNV48pPvwlp1HM3GGCbqFfz59waurN7B6m/3cWX1NoIH950Ge4wl5XhFouuGvvrsbFgbH0WzMYZ6dRQ37v4sDP91ZTn3gIPmhNjNfH18MWw2xrBy+xEAIKAhAIBSFn1nDLTdFvC29t9kO1X8vrR0BsBgOcHjF6c+PxdO7qgZjc+KpHMOvPUhAOAVLIQ57nlLIRww9XIN//y7mUk4bfZVGDQnCAfcvHcPl65Ha1w3+0lDs6Cjg2H+zfcBAK3a24U7QTjg0vVlTDenMiuwWfsqvDH3HgBgYeZYoU4QDphr7cXGi42uDrrZd4kCobOt6/XZdwAA7y58UZgTRDbma/KjDz4FkB7+qvWvm305/KPf47om64/x6s5pfHP2eN+rg4iA+f1zmN8/Z+ycVvpcQCnDg/UdACIC5qzIET6/aO1uicYK2QQFBaUUCCkCSgFKMcIoKA0Q0qiNxj5BvI3xPkGsXyD1F22M4s6t6LpX1UHHPUQEzLZmMNuawXjluZXCrTSeXzMHrmELnWNFBOxpTeLytVVxc0+fUzx99hfq1QkE8NBoTLUNj9+kTJDkjC8vi+QS0fWjtjJMJxO3ketYufY9gMgJyUgQEfDj8l3R+HD9Dzxa+wX16gRM0Blvgs54axnLKJF17913VFwnI8HrCESh+XDtCQBg8qXd7fZOfxPD0w1ub2ReGfMEcCd4nofp0UOis3AAD31buOwNbKMkr4zOgXIkcHjJBhoybD5bbyvqXVjr1r5RRrP2zfcWjxJCCAghok2KACoioFZtmhU5rEPbmXSTsY8SQgh8T+EAV2xliBplnJzeLeN7FhEQKeoYxkqc/FT9tA4ILJJgEaXPFja6ZeMBzRLoV1j3M/lxRElQ8L8kD+iOAFaS5Gc7AYT46iWQdfC8pc8WbnxDL0MIga9NgiweAbbJT8YgJz+VYzoOaG91tYpKwvvTcoSvI0JJuJQ+W9gmsrwyqigxMEH9XiBgvUxk/Ul+3IFaB9iiTLxfBW0ZlIlQL5NffhmXHaV+nFQeIId/mZMfByG+ugxyDBvvTzrGJwREtRtMboYA++Qno+iHHmkyRLcbTEPZk58O+u3wEJU+WSbliZCaCVKHpTAIvF8F7V7AFmVNfhy+ngcEggfESp/l7A9y6ZNlUrfDtopsUSTvt0EXERrW5Mdh9VhctLHhKn3U9F4gC8rK+4EMT4SGLfnJY2aOgPxlrNjSJ8PXPRbnhxqyYNB5vwopj8UjJkjDfK/EBzH5cRDiq3eDNihL6TNBuxsU53bC8vP+LE6PRUAXDxii5AdETjeWQVsUUfpskSajfS+QZIL94vD9Sn7c6U5MsCzJz/b1eOr5AOZkZPbSZwu3yLKzwZgEgd7y/n4mPw4jEUpDGXl/Etr3AvyZIOshCckr47I7lJ1+9PBr+ipw88niCADcuHoZV3/6oUtR2ZPfkYO7xPWJb4+J88KxHHBr7fwIP8F94eKi4YbLwfv5mEcO7hKh/+Xpj2OHpZVn6KdHD4W9OL7ueZ4oQ/y8Hk9KnKEREm/nr7KEnNSff8YqFbHJMelJGg9oeMDvLy725V9XtsL45P4+rtts/Da2sQ38B7dfYqLajPg/AAAAAElFTkSuQmCC"
+                alt="Icono de Mis archivos"
+                width="64"
+                height="64"
+            >
+        </div>
+
+        Mis archivos
+
+    </div>
+
+
+    <!-- ICONO DIBUJOS -->
+
+    <div
+        class="desktop-icon icon3"
+        ondblclick="openWindow('photos')"
+    >
+
+        <div class="icon-image icon-dibujos">
+            <img
+                src="data:image/png;base64,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"
+                alt="Icono de Mis dibujos"
+                width="64"
+                height="64"
+            >
+        </div>
+
+        Mis dibujos
+
+    </div>
+
+
+    <!-- ICONO MÚSICA -->
+
+    <div
+        class="desktop-icon icon4"
+        onclick="openWindow('music')"
+    >
+
+        <div class="icon-image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABIdJREFUeJztmj9o1FAcx7+JYg+qDife4IlFDgShdJYbFAptR0Hs0uGWAx10LGihUITC9aBrBwtdbuhSEZ2kHgg6iJtQCkLxKIWe4BWCYIcrYuNQXnzJJXl/8nvJnfULgfQa3sv3877vT14C/NfplpVWRcsPtlx2Prs6llq9Ip01XQEzPv3sMvfrltsvEIzdRLjxv9pYOOiLJJDfgMg4r36AQFa5rPEXD38CAO4/vwAgewiJK1Y1bls5AMCx2+0LCNqV6hqfXDoCALx9OtQXEJQrpDDOK2sI0pVRG+eVJQSpipYfbLkmjPPKCoKwEpH5pMZ5ZQFBCgDQG31K41kOjLbMRYVSHhsLB97fLx7+hG3lYFs5TC4dYXLpCG+fDmmZB/zQbCvnwZ1+dtn3DGFC0mNAoZRHp+V4SWAQdMSAxSmtJEglYHZ1zOq0HF8S7j+/gGO3q1QZH3V2HnljKSVBiSpFEmRaHwDy410473LGk+ArrFZt+ijPrU30VEbdHYLKj/tTZRqCV1Ct2nRLtwq+f7Y+dbQgyLYyr6BxXiYh2MCJ+ZnFUXSdS75jZnG0JxWA3Jgg6uNM+fFurHl2jakxwQaA4o2bkRfoQJCZEmWMB683AcECgEZ9371TORN74fr8NsmYoGI6TNTdQWoaBPSSwEu1xaNEnQQbACpPrlrr89t43/jtHSoSQaAwzosSgpeAubUJq73zxfuHKog4CM47tSny9r0R4TkVBF8XYBD4IwsIH17ueWajzgEaCD1jwNzahMUffCpklBSCyDh/zspLAkF6EIyaBcKUBIKM8VePv3vlHLtd36wAqEGQBqAqExCijPPmmWQhSLVoo77vVp5c1Zpr49YJYbPD7Xsj+PByz3fOA2MzS5jpMInWCcYSwKSaBN0Wj5IoCcJWrVWbrmzfj5NMEmRb/PXKN1/Zdx9dEdYflQShsSTxD0oEQSbqr1e+eYY/ftwFABx8HtKGYLwL8JLpDrpRl1FYd0gVABAPQdV4uXwd5fJ1pfqDEIQAVBdCMoqCQN3iYeJ3t4EUvhCJ0uzqmMXGhI2FA6nvCYCTAU93EAROtvg7Lcf7XXkWYI/EFDMDED4wUooZL04d4tfXa+i0HN9AKGWC3wco3riJO5UzWJ/f9l2TBIgJCGHGgd4PtJSmwVq16bLts+AOksqzQpioIMgaZ4odA1TWADOLowD0F026YwJT0Hh7EwAc4XZZJACdBVAWEHSNM0UC0Jn+VLfSwiQLIalxplAAlMtfHcVBoDLOFApA1PphW+gUrc8rCIGpOHUIANh9cxHnbH3jTEpL4agtMma+vfOFbH0A+FeMhVIexalDtDfPo715HsM/hklej/UUIBN/9iqNb3Vq87yiPrSm6KpaAAC5N8lpiGq/wlcgWWEpqVHfT/ZmaNBF+sQ6iAkAiO87SaSyki6Af6ILkGvQusGpHwSNaFBSYPQ+a9Wm2+8gkt6f0pYY/zFVlk+LTOSrQBU16vuZpoNqqk5Mj90Ivxoz3SqULW/kRuOSodON+M1Y6qfOTPsxb4wpbF2fWT8/DfoDNDtahWxYIc4AAAAASUVORK5CYII=" alt="Icono de Música" style="width:64px;height:64px;object-fit:contain;image-rendering:pixelated;vertical-align:top;"></div>
+
+        Música
+
+    </div>
+    
+    <!-- ICONO INTERNET -->
+
+<div
+    class="desktop-icon icon5"
+    ondblclick="openWindow('internet')"
+>
+
+    <div class="icon-image">
+        <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA7ZJREFUeJztWztu20AQHQrWOVwKcB9VqiMggiuXLuwbuPEBAgRIpcY3iIG4dGVYgFO7knoBKnUOFUlhDDOand2d/ZFLJQ8wYJFLat/jm50ZkmqgI3yCL79Dj9nAqikxF4riXxBDnKOkEEUFyEGeooQQ2U+Yi/Tj/Uv7/83y0tifS4xsAriIUzIISspGlh9XQohRysEAH8Q5eTpxibwWnPDj/YtxvlTHJalnI04n/nl8Kx776/DDGHN9d9VuczmB70fEuCFKABvxp4dnkZgE37jru6tORAgWgJOfwBTOxxft51wCSONKiBC0BlDyE5ga5PtAyhoDECAAJ98VqDtulpfwffnNGJOyMKoEsJ2QX31q15ygIuxgDU8Pz8aYWBG8Akgxr4ErrmPAz5dLBKcAseRLA52WQwT1GsDJ9734ITQiuGAVwLXo9UWehoFvvaEiuFwg5svcXVwtkOqD5F5g6DAUOdWrj+Au+O8A+sFX7fkWP219HzpWeyztJjloz0BdoHZACPnSsGUDKSUibKmxSAjkrgJLohWgxrwfA5cLEJSr4YChkA8pihBSGPzzWWDQAsQshhwjgNMsfnwiIOcjB9TS7uaCxgmDDoEY8IUwiwApVV3fGLwDYtIhxeAFSEUDUF8WkMJof9jCDtbW/TFXfwOrpkoHcDL7w9bYn6v5qlIAeoWRPF79t/fXdl8OEc74hpheICYLpGQOFGE+W7TnsZ1DukdA7w2MALp5GakEcrjBGwI8/iT0mfvf3l9bIU4uDbrin4OKECKEIQB+2RChCQn+PkErgGsd0IRBLdCGBPKtOgS6gChATBjgQtjl3WEX0AW+V2hGth0cIdkglwhYg2BtMp8tgo7HcJBEQBiFEGIH65O6QWITwQiBoRZFLtDswPlV9Xjc1gUC6GoBH+azhe7haF8u8HWBKZDIAzjSYB8i2ErqHFcfQHa2dRHkCH1a7OvSarmP6CyEqAuk2mB/2A6mSkT3cBd4K0GfCAB/haBi1FYYAcghpCqFNSIgJFfEikALoQlMgwshG5xPh20IEQHgQwhtIZUaRvPZ4ujPBR4KSa/LawhSsXD8+fjiyBV0OwcXxyY+XiCcnytjoEgbWDVZfjDhEwInTcdJwgCYIvjc8RO+Wt90k0Sg5AEi2+ENrBoeEpqw0IaONrtI5HF+0nYpPJLuB/AvshGMbapcItjIU1DC9H8676I/m7NZ3jVOgtSZagSQ5qRqhlJQopGi5DXEbfORQmMQP50d7G+HObSCnOI9iWrxB789/3TWVJVyAAAAAElFTkSuQmCC"
+            alt="Internet"
+            style="
+                width:64px;
+                height:64px;
+                object-fit:contain;
+                image-rendering:pixelated;
+                display:block;
+                margin:auto;
+            "
+        >
+    </div>
+
+    Internet
+
+</div>
+
+    <!-- ==================================================
+         PAINT
+    =================================================== -->
+
+    <div
+        class="window"
+        id="paint"
+        style="left:25%;top:18%;"
+    >
+
+        <div
+            class="titlebar"
+            onmousedown="startDrag(event,'paint')"
+        >
+
+            <span class="title">
+                🎨 Mi Paint - dibujo_feliz.png
+            </span>
+
+            <div class="window-buttons">
+
+                <div
+                    class="win-button"
+                    onclick="minimizeWindow('paint')"
+                >
+                    _
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="maximizeWindow('paint')"
+                >
+                    □
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="closeWindow('paint')"
+                >
+                    X
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="window-content">
+
+            <div class="paint-area">
+
+                <div class="sky"></div>
+
+                <div class="pixel-sun"></div>
+
+                <div class="tree"></div>
+
+                <div class="rabbit">
+                    🐰
+                </div>
+
+                <div class="flower flower1">
+                    🌸
+                </div>
+
+                <div class="flower flower2">
+                    🌼
+                </div>
+
+            </div>
+
+
+            <div class="palette">
+
+                <div class="color" style="background:#ff4d75"></div>
+                <div class="color" style="background:#ff9e45"></div>
+                <div class="color" style="background:#ffe34d"></div>
+                <div class="color" style="background:#63d65b"></div>
+                <div class="color" style="background:#42c9ff"></div>
+                <div class="color" style="background:#755cff"></div>
+                <div class="color" style="background:#ff78df"></div>
+                <div class="color" style="background:#ffffff"></div>
+                <div class="color" style="background:#222222"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         ARCHIVOS
+    =================================================== -->
+
+    <div
+        class="window"
+        id="files"
+        style="left:8%;top:25%;width:380px;height:270px;"
+    >
+
+        <div
+            class="titlebar"
+            onmousedown="startDrag(event,'files')"
+        >
+
+            <span class="title">
+                📁 Mis documentos
+            </span>
+
+            <div class="window-buttons">
+
+                <div
+                    class="win-button"
+                    onclick="minimizeWindow('files')"
+                >
+                    _
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="maximizeWindow('files')"
+                >
+                    □
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="closeWindow('files')"
+                >
+                    X
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="window-content">
+
+            <div class="folder-container">
+
+                <div class="folder">
+                    <span class="folder-icon">📁</span>
+                    Dibujos
+                </div>
+
+                <div class="folder">
+                    <span class="folder-icon">📁</span>
+                    Música
+                </div>
+
+                <div class="folder">
+                    <span class="folder-icon">📁</span>
+                    Fotos
+                </div>
+
+                <div class="folder">
+                    <span class="folder-icon">📁</span>
+                    Juegos
+                </div>
+
+                <div class="folder">
+                    <span class="folder-icon">📁</span>
+                    Descargas
+                </div>
+
+                <div class="folder">
+                    <span class="folder-icon">📄</span>
+                    README.txt
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         FOTOS
+    =================================================== -->
+
+    <div
+        class="window"
+        id="photos"
+        style="left:35%;top:30%;width:400px;height:300px;"
+    >
+
+        <div
+            class="titlebar"
+            onmousedown="startDrag(event,'photos')"
+        >
+
+            <span class="title">
+                🎨 Mis dibujos
+            </span>
+
+            <div class="window-buttons">
+
+                <div
+                    class="win-button"
+                    onclick="minimizeWindow('photos')"
+                >
+                    _
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="maximizeWindow('photos')"
+                >
+                    □
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="closeWindow('photos')"
+                >
+                    X
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="window-content">
+
+            <div class="paint-area">
+
+                <div class="sky"></div>
+
+                <div
+                    style="
+                    position:absolute;
+                    left:35%;
+                    top:25%;
+                    font-size:80px;
+                    "
+                >
+                    🌈
+                </div>
+
+                <div
+                    style="
+                    position:absolute;
+                    bottom:15px;
+                    left:30%;
+                    font-size:50px;
+                    "
+                >
+                    🌸 🐱 🌸
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         MÚSICA
+    =================================================== -->
+
+    <div
+        class="window"
+        id="music"
+        style="right:7%;top:20%;width:320px;height:300px;"
+    >
+
+        <div class="pixel-window-controls" aria-label="Controles de ventana">
+            <button type="button" class="pixel-window-button pixel-minimize" aria-label="Minimizar" onclick="minimizeWindow('music'); event.stopPropagation();"></button>
+            <button type="button" class="pixel-window-button pixel-maximize" aria-label="Maximizar" onclick="maximizeWindow('music'); event.stopPropagation();"></button>
+            <button type="button" class="pixel-window-button pixel-close" aria-label="Cerrar" onclick="closeWindow('music'); event.stopPropagation();"></button>
+        </div>
+
+        <div class="window-content">
+
+            <audio id="musicAudio" preload="metadata"></audio>
+<div class="player">
+
+<div class="pixel-window-controls" aria-hidden="false">
+  <button class="pixel-window-button pixel-minimize" type="button"
+          aria-label="Minimizar reproductor"
+          onclick="pixelMinimizeMusic(event)"></button>
+  <button class="pixel-window-button pixel-maximize" type="button"
+          aria-label="Maximizar reproductor"
+          onclick="pixelMaximizeMusic(event)"></button>
+  <button class="pixel-window-button pixel-close" type="button"
+          aria-label="Cerrar reproductor"
+          onclick="pixelCloseMusic(event)"></button>
+</div>
+
+                <div class="player-meta">
+                    <span id="songTitle">Mi canción</span>
+                    <span id="songArtist">Mi artista</span>
+                </div>
+                <div class="player-time">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                
+
+                <div
+                    id="pixelProgress"
+                    class="pixel-progress"
+                    aria-hidden="true"
+                ></div>
+
+                <img
+                    class="pixel-player-image player-image-play"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfwAAABgCAYAAAD4gcCfAAAAAXNSR0IArs4c6QAAA7hJREFUeJzt3DFu02AYBmAHVWLrMRjhDixsbIkYyFSukAExIwauAFM7oHRjY+EOMHKMbkxlApK/xe6Pncb2+zwTqRvXqoTeft9rZ9EM7Onp6nrocwJAmq9X28WQ53sw5MkAgHES+AAQQOADQIDe/UBXZ//u+ceq83262Pa6HgA4hhcvV73e//rzWevxvp3+SZ83A8CUrDfL1uPn7y//+Z7aY2NjpQ8ALX6HefnHwpTCvmlM+ACMWNdE3qYtiMtjd5n815tls94s//y762eMTXXg6+wBSLQb+r9f7yrzrLbTL/Oz7PTL/K3t9K30ASCAlT4AozWmlfnuZL+73p8KgQ9AnNp7A8o1/hRDv3P/r7MHYC7G/FheV+ff9zl9Ez4AMf4nmGvu9h8zN+0BQACBDwABbuz7dfYAcHxDd/omfAAIIPABIIDAB4AAC509AIxf307fhA8AAQQ+AAQQ+AAQoHeHr7MHgPtX2+mb8AEggMAHgAACHwACCHwACCDwASCAwAeAAAIfAAIIfAAIIPABIIDAB4AAAh8AAgh8AAgg8AEggMAHgAACHwACCHwACCDwASCAwAeAAAIfAAKcHPsChvbt9MuxLwGACXty9ezYl3AQJnwACCDwASCAwAeAALPr8OfavQBAHyZ8AAgg8AEggMAHgAACHwACCHwACCDwASCAwAeAAAIfAAIIfAAIMLtP2oM0681y7/X5+8sjXQkwZiZ8AAhgwocKfafpuU3jfh8wHQIfZqYM0aYRpICVPgBEEPgAEMBKHw7otvX6nOnkYbwEPgQQxICVPgRK2zwAAh8AIpx8vdoudr/w9HR1XXOCFy9Xe68/XWwHuKy/uiaRcjVZ+/0wpClNzrvXeqj/F6oEGE6Zt6XXn89aj5vwASCAwAeAAAIfAAJ0PpZXdgLvnn9s/f6hO/2uzk9HyJh8+P527/Wrx2+OdCXtyut82Dya9M+BOerb2Zf36JnwASCAwAeAAD5pDwLcWK1/sVqHNDcCv+u5/Pvu9D2Hz5SUQfqhmUanPxR/WMD/G7qzL1npA0AAK32YmXLKbhqTNmDCB4AIrfv+23R91n5Xp18a+rP34ZB+Pvux97p2cu77/tuU963c54Q/xt8HTMWhO/uSCR8AAujwYeLcGQ/chQkfAAIM3uGXdPpwWHpwGKeujr7U1dmXajt8K32YOAEP3IWVPgAEEPgAEKC6wy/VdvoAQL3azr5kwgeAAAIfAAIIfAAI0LvDL+n0AaC/vp19yYQPAAEEPgAEEPgAEOAXnLEmyZ8hDWMAAAAASUVORK5CYII="
+                    width="508"
+                    height="96"
+                    alt="Reproductor pixel art"
+                    draggable="false"
+                >
+
+                <img
+                    class="pixel-player-image player-image-pause"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfwAAABgCAYAAAD4gcCfAAAAAXNSR0IArs4c6QAAA7pJREFUeJzt3TFy01AUBVCZyUy6LIMS9kBDRxcPBa7CFlxkqBkKtgAVFIzT0aXJHqBkGemoQmVwvoOUH8mx5HtOFVuWonFz/f6V7FkzsBcn85uhjwkAaa6uV7Mhj/dkyIMBAOMk8AEggMAHgAC9+4Guzv7Dq89Vx/v2ddXrfABgH16/mffa//z7Wev2vp3+UZ+dAWBKFsvT1u1fPl78d5/abWNjSR8AWqzDvPywMKWwbxoTPgAj1jWRt2kL4nLbfSb/xfK0WSxP//7d9T/GpjrwdfYAJNoM/fXjTWWe1Xb6ZX6WnX6Zv7WdviV9AAhgSR+A0RrTkvnmZL+5vD8VAh+AOLXXBpTL+FMM/c71f509AIdizLfldXX+fe/TN+EDEOMhwVxztf+YuWgPAAIIfAAIsLXer7MHgP0butM34QNAAIEPAAEEPgAEmOnsAWD8+nb6JnwACCDwASCAwAeAAL07fJ09ADy+2k7fhA8AAQQ+AAQQ+AAQQOADQACBDwABBD4ABBD4ABBA4ANAAIEPAAEEPgAEEPgAEEDgA0AAgQ8AAQQ+AAQQ+AAQQOADQACBDwABBD4ABBD4ABDgaN8nMLQfJ5f7PgUAJuz59ct9n8JOmPABIIDAB4AAAh8AAhxch3+o3QsA9GHCB4AAAh8AAgh8AAgg8AEggMAHgAACHwACCHwACCDwASCAwAeAAAf3TXuQYLE83Xru08/3TdM0zfHl08H3A6bPhA8AAUz4UKGckL98vHjU/cfG+wHTYcIHgAACHwACCHwACKDDhx2666r4Q6aTh/Ey4QNAAIEPAAEEPgAEOLq6Xs02n3hxMr+pOcDrN/Nbj799XQ1wWv90daBlR1j7ehhSWmffRacPwynztnT+/ax1uwkfAAIIfAAIIPABIEDnffhlJ/Dh1efW1w/d6Xd1fjpCxmT9y3Nrb5+929OZjEP5fhw3fpEP7qtvZ19eo2fCB4AAAh8AAgh8AAiw1eF33Zf/2J2++/CZkuPL2x31pyar09/q7C919nBfQ3f2JRM+AAQQ+AAQQOADQIDW9f67dH3XflenXxr6u/dhl36//HXrcW1H3Xf/tbuuVVn3523HfOh+/zOW9wOmaNedfcmEDwABBD4ABBD4ABBg8A6/pNOH4ZXd96a2Hvyu/fTmsBtdHX2pq7Mv1Xb4nT+eA0yD4AbaCHyYoIeGuw8FkEuHDwABqjv8Um2nDwDUq+3sSyZ8AAgg8AEggMAHgAC9O/ySTh8A+uvb2ZdM+AAQQOADQACBDwAB/gDfoh+7DgceoQAAAABJRU5ErkJggg=="
+                    width="508"
+                    height="96"
+                    alt="Reproductor pixel art en reproducción"
+                    draggable="false"
+                >
+
+                <button
+                    class="player-hit player-shuffle"
+                    type="button"
+                    aria-label="Aleatorio"
+                    onclick="toggleShuffle(event)"
+                ></button>
+
+                <button
+                    class="player-hit player-prev"
+                    type="button"
+                    aria-label="Anterior"
+                    onclick="previousSong(event)"
+                ></button>
+
+                <button
+                    class="player-hit player-play"
+                    id="playerPlay"
+                    type="button"
+                    aria-label="Reproducir o pausar"
+                    onclick="toggleMusic(event)"
+                ></button>
+
+                <button
+                    class="player-hit player-next"
+                    type="button"
+                    aria-label="Siguiente"
+                    onclick="nextSong(event)"
+                ></button>
+
+                <button
+                    class="player-hit player-seek"
+                    type="button"
+                    aria-label="Buscar en la canción"
+                    onclick="seekMusic(event)"
+                ></button>
+
+                <span
+                    class="player-status"
+                    id="playerStatus"
+                    aria-live="polite"
+                >Pausado</span>
+
+            </div>
+</div>
+
+    </div>
+
+
+    <!-- ==================================================
+         INTERNET
+    =================================================== -->
+
+    <div
+        class="window"
+        id="internet"
+        style="right:15%;top:35%;width:440px;height:300px;"
+    >
+
+        <div
+            class="titlebar"
+            onmousedown="startDrag(event,'internet')"
+        >
+
+            <span class="title">
+                🌐 Internet Explorer
+            </span>
+
+            <div class="window-buttons">
+
+                <div
+                    class="win-button"
+                    onclick="minimizeWindow('internet')"
+                >
+                    _
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="maximizeWindow('internet')"
+                >
+                    □
+                </div>
+
+                <div
+                    class="win-button"
+                    onclick="closeWindow('internet')"
+                >
+                    X
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="window-content">
+
+            <div
+                style="
+                background:white;
+                height:100%;
+                padding:15px;
+                "
+            >
+
+                <div
+                    style="
+                    background:#ddd;
+                    padding:7px;
+                    border:2px inset #aaa;
+                    "
+                >
+                    🔍 https://mi-pc-cute.local
+                </div>
+
+                <br>
+
+                <h2>
+                    🌈 Bienvenido
+                </h2>
+
+                <p>
+                    Has llegado al Internet
+                    del escritorio Pixel XP.
+                </p>
+
+                <p>
+                    ✨ Todo funciona localmente.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     MENÚ INICIO
+====================================================== -->
+
+<div
+    class="start-menu"
+    id="startMenu"
+>
+
+    <div class="start-header">
+        🪟 Pixel XP
+    </div>
+
+
+    <div
+        class="start-item"
+        onclick="openWindow('paint')"
+    >
+        🎨 Paint
+    </div>
+
+    <div
+        class="start-item"
+        onclick="openWindow('files')"
+    >
+        📁 Mis documentos
+    </div>
+
+    <div
+        class="start-item"
+        onclick="openWindow('photos')"
+    >
+        🖼️ Mis imágenes
+    </div>
+
+    <div
+        class="start-item"
+        onclick="openWindow('music')"
+    >
+        💿 Windows Media Player
+    </div>
+
+    <div
+        class="start-item"
+        onclick="openWindow('internet')"
+    >
+        🌐 Internet Explorer
+    </div>
+
+    <hr>
+
+    <div
+        class="start-item"
+        onclick="shutdown()"
+    >
+        🔌 Apagar equipo
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     BARRA DE TAREAS
+====================================================== -->
+
+<div class="taskbar">
+
+    <div class="launcher-dock" aria-label="Aplicaciones">
+        <button class="start-button launcher" title="Inicio" aria-label="Windows" onclick="toggleStart()">
+            <svg viewBox="0 0 24 24" aria-label="Windows"><path d="M2 4.2 10.5 3v8H2V4.2Zm10 -1.4L22 1v10H12V2.8ZM2 12.5h8.5v8L2 19.3v-6.8Zm10 0h10V23l-10-1.4v-9.1Z"/></svg>
+        </button>
+        <button class="launcher" title="Paint" onclick="openWindow('paint')">🎨</button>
+        <button class="launcher" title="Archivos" aria-label="Archivos" onclick="openWindow('files')"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABRtJREFUeJztW01oHDcU/jwar9e7y7oNtROXpizGJIeQgk1DMYTkUugpEOjfpYEeS6GQU3sNFHIrFHrIrZBT6KUEQ3JPCDU5tOTPDgQnKWmbhvy0rt24aTLS9DArrWZW0mg03p2drT9YPKvVe5r39PTepxkZ+J9jRNV48pPvwlp1HM3GGCbqFfz59waurN7B6m/3cWX1NoIH950Ge4wl5XhFouuGvvrsbFgbH0WzMYZ6dRQ37v4sDP91ZTn3gIPmhNjNfH18MWw2xrBy+xEAIKAhAIBSFn1nDLTdFvC29t9kO1X8vrR0BsBgOcHjF6c+PxdO7qgZjc+KpHMOvPUhAOAVLIQ57nlLIRww9XIN//y7mUk4bfZVGDQnCAfcvHcPl65Ha1w3+0lDs6Cjg2H+zfcBAK3a24U7QTjg0vVlTDenMiuwWfsqvDH3HgBgYeZYoU4QDphr7cXGi42uDrrZd4kCobOt6/XZdwAA7y58UZgTRDbma/KjDz4FkB7+qvWvm305/KPf47om64/x6s5pfHP2eN+rg4iA+f1zmN8/Z+ycVvpcQCnDg/UdACIC5qzIET6/aO1uicYK2QQFBaUUCCkCSgFKMcIoKA0Q0qiNxj5BvI3xPkGsXyD1F22M4s6t6LpX1UHHPUQEzLZmMNuawXjluZXCrTSeXzMHrmELnWNFBOxpTeLytVVxc0+fUzx99hfq1QkE8NBoTLUNj9+kTJDkjC8vi+QS0fWjtjJMJxO3ketYufY9gMgJyUgQEfDj8l3R+HD9Dzxa+wX16gRM0Blvgs54axnLKJF17913VFwnI8HrCESh+XDtCQBg8qXd7fZOfxPD0w1ub2ReGfMEcCd4nofp0UOis3AAD31buOwNbKMkr4zOgXIkcHjJBhoybD5bbyvqXVjr1r5RRrP2zfcWjxJCCAghok2KACoioFZtmhU5rEPbmXSTsY8SQgh8T+EAV2xliBplnJzeLeN7FhEQKeoYxkqc/FT9tA4ILJJgEaXPFja6ZeMBzRLoV1j3M/lxRElQ8L8kD+iOAFaS5Gc7AYT46iWQdfC8pc8WbnxDL0MIga9NgiweAbbJT8YgJz+VYzoOaG91tYpKwvvTcoSvI0JJuJQ+W9gmsrwyqigxMEH9XiBgvUxk/Ul+3IFaB9iiTLxfBW0ZlIlQL5NffhmXHaV+nFQeIId/mZMfByG+ugxyDBvvTzrGJwREtRtMboYA++Qno+iHHmkyRLcbTEPZk58O+u3wEJU+WSbliZCaCVKHpTAIvF8F7V7AFmVNfhy+ngcEggfESp/l7A9y6ZNlUrfDtopsUSTvt0EXERrW5Mdh9VhctLHhKn3U9F4gC8rK+4EMT4SGLfnJY2aOgPxlrNjSJ8PXPRbnhxqyYNB5vwopj8UjJkjDfK/EBzH5cRDiq3eDNihL6TNBuxsU53bC8vP+LE6PRUAXDxii5AdETjeWQVsUUfpskSajfS+QZIL94vD9Sn7c6U5MsCzJz/b1eOr5AOZkZPbSZwu3yLKzwZgEgd7y/n4mPw4jEUpDGXl/Etr3AvyZIOshCckr47I7lJ1+9PBr+ipw88niCADcuHoZV3/6oUtR2ZPfkYO7xPWJb4+J88KxHHBr7fwIP8F94eKi4YbLwfv5mEcO7hKh/+Xpj2OHpZVn6KdHD4W9OL7ueZ4oQ/y8Hk9KnKEREm/nr7KEnNSff8YqFbHJMelJGg9oeMDvLy725V9XtsL45P4+rtts/Da2sQ38B7dfYqLajPg/AAAAAElFTkSuQmCC" alt="" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></button>
+        <button class="launcher" title="Mis dibujos" aria-label="Mis dibujos" onclick="openWindow('photos')"><img src="data:image/png;base64,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" alt="Mis dibujos" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></button>
+        <button class="launcher" title="Música" aria-label="Música" onclick="openWindow('music')"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABIdJREFUeJztmj9o1FAcx7+JYg+qDife4IlFDgShdJYbFAptR0Hs0uGWAx10LGihUITC9aBrBwtdbuhSEZ2kHgg6iJtQCkLxKIWe4BWCYIcrYuNQXnzJJXl/8nvJnfULgfQa3sv3877vT14C/NfplpVWRcsPtlx2Prs6llq9Ip01XQEzPv3sMvfrltsvEIzdRLjxv9pYOOiLJJDfgMg4r36AQFa5rPEXD38CAO4/vwAgewiJK1Y1bls5AMCx2+0LCNqV6hqfXDoCALx9OtQXEJQrpDDOK2sI0pVRG+eVJQSpipYfbLkmjPPKCoKwEpH5pMZ5ZQFBCgDQG31K41kOjLbMRYVSHhsLB97fLx7+hG3lYFs5TC4dYXLpCG+fDmmZB/zQbCvnwZ1+dtn3DGFC0mNAoZRHp+V4SWAQdMSAxSmtJEglYHZ1zOq0HF8S7j+/gGO3q1QZH3V2HnljKSVBiSpFEmRaHwDy410473LGk+ArrFZt+ijPrU30VEbdHYLKj/tTZRqCV1Ct2nRLtwq+f7Y+dbQgyLYyr6BxXiYh2MCJ+ZnFUXSdS75jZnG0JxWA3Jgg6uNM+fFurHl2jakxwQaA4o2bkRfoQJCZEmWMB683AcECgEZ9371TORN74fr8NsmYoGI6TNTdQWoaBPSSwEu1xaNEnQQbACpPrlrr89t43/jtHSoSQaAwzosSgpeAubUJq73zxfuHKog4CM47tSny9r0R4TkVBF8XYBD4IwsIH17ueWajzgEaCD1jwNzahMUffCpklBSCyDh/zspLAkF6EIyaBcKUBIKM8VePv3vlHLtd36wAqEGQBqAqExCijPPmmWQhSLVoo77vVp5c1Zpr49YJYbPD7Xsj+PByz3fOA2MzS5jpMInWCcYSwKSaBN0Wj5IoCcJWrVWbrmzfj5NMEmRb/PXKN1/Zdx9dEdYflQShsSTxD0oEQSbqr1e+eYY/ftwFABx8HtKGYLwL8JLpDrpRl1FYd0gVABAPQdV4uXwd5fJ1pfqDEIQAVBdCMoqCQN3iYeJ3t4EUvhCJ0uzqmMXGhI2FA6nvCYCTAU93EAROtvg7Lcf7XXkWYI/EFDMDED4wUooZL04d4tfXa+i0HN9AKGWC3wco3riJO5UzWJ/f9l2TBIgJCGHGgd4PtJSmwVq16bLts+AOksqzQpioIMgaZ4odA1TWADOLowD0F026YwJT0Hh7EwAc4XZZJACdBVAWEHSNM0UC0Jn+VLfSwiQLIalxplAAlMtfHcVBoDLOFApA1PphW+gUrc8rCIGpOHUIANh9cxHnbH3jTEpL4agtMma+vfOFbH0A+FeMhVIexalDtDfPo715HsM/hklej/UUIBN/9iqNb3Vq87yiPrSm6KpaAAC5N8lpiGq/wlcgWWEpqVHfT/ZmaNBF+sQ6iAkAiO87SaSyki6Af6ILkGvQusGpHwSNaFBSYPQ+a9Wm2+8gkt6f0pYY/zFVlk+LTOSrQBU16vuZpoNqqk5Mj90Ivxoz3SqULW/kRuOSodON+M1Y6qfOTPsxb4wpbF2fWT8/DfoDNDtahWxYIc4AAAAASUVORK5CYII=" alt="" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></button>
+        <button class="launcher" title="Internet" aria-label="Internet" onclick="openWindow('internet')"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA7ZJREFUeJztWztu20AQHQrWOVwKcB9VqiMggiuXLuwbuPEBAgRIpcY3iIG4dGVYgFO7knoBKnUOFUlhDDOand2d/ZFLJQ8wYJFLat/jm50ZkmqgI3yCL79Dj9nAqikxF4riXxBDnKOkEEUFyEGeooQQ2U+Yi/Tj/Uv7/83y0tifS4xsAriIUzIISspGlh9XQohRysEAH8Q5eTpxibwWnPDj/YtxvlTHJalnI04n/nl8Kx776/DDGHN9d9VuczmB70fEuCFKABvxp4dnkZgE37jru6tORAgWgJOfwBTOxxft51wCSONKiBC0BlDyE5ga5PtAyhoDECAAJ98VqDtulpfwffnNGJOyMKoEsJ2QX31q15ygIuxgDU8Pz8aYWBG8Akgxr4ErrmPAz5dLBKcAseRLA52WQwT1GsDJ9734ITQiuGAVwLXo9UWehoFvvaEiuFwg5svcXVwtkOqD5F5g6DAUOdWrj+Au+O8A+sFX7fkWP219HzpWeyztJjloz0BdoHZACPnSsGUDKSUibKmxSAjkrgJLohWgxrwfA5cLEJSr4YChkA8pihBSGPzzWWDQAsQshhwjgNMsfnwiIOcjB9TS7uaCxgmDDoEY8IUwiwApVV3fGLwDYtIhxeAFSEUDUF8WkMJof9jCDtbW/TFXfwOrpkoHcDL7w9bYn6v5qlIAeoWRPF79t/fXdl8OEc74hpheICYLpGQOFGE+W7TnsZ1DukdA7w2MALp5GakEcrjBGwI8/iT0mfvf3l9bIU4uDbrin4OKECKEIQB+2RChCQn+PkErgGsd0IRBLdCGBPKtOgS6gChATBjgQtjl3WEX0AW+V2hGth0cIdkglwhYg2BtMp8tgo7HcJBEQBiFEGIH65O6QWITwQiBoRZFLtDswPlV9Xjc1gUC6GoBH+azhe7haF8u8HWBKZDIAzjSYB8i2ErqHFcfQHa2dRHkCH1a7OvSarmP6CyEqAuk2mB/2A6mSkT3cBd4K0GfCAB/haBi1FYYAcghpCqFNSIgJFfEikALoQlMgwshG5xPh20IEQHgQwhtIZUaRvPZ4ujPBR4KSa/LawhSsXD8+fjiyBV0OwcXxyY+XiCcnytjoEgbWDVZfjDhEwInTcdJwgCYIvjc8RO+Wt90k0Sg5AEi2+ENrBoeEpqw0IaONrtI5HF+0nYpPJLuB/AvshGMbapcItjIU1DC9H8676I/m7NZ3jVOgtSZagSQ5qRqhlJQopGi5DXEbfORQmMQP50d7G+HObSCnOI9iWrxB789/3TWVJVyAAAAAElFTkSuQmCC" alt="Internet" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></button>
+        <div class="task-buttons" id="taskButtons"></div>
+    </div>
+
+
+    <div class="taskbar-right">
+
+        <div class="volume-control" id="volumeControl">
+            <button
+                class="volume-button"
+                id="volumeButton"
+                type="button"
+                title="Volumen"
+                aria-label="Volumen"
+                aria-expanded="false"
+                onclick="toggleVolumePopup(event)"
+            >
+                <img
+                    id="volumeIcon"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABIpJREFUeJztW79PFEEYfSzHIbB4uQsJWBgTSdRLjDQUhsLCiDGhobGwsMJGLbDRf8BOGynQRmsTbUyMiREkxoLC0GhMQBKNdhovdyz3y4O9XQucY9mbvZ2ZnZld1FcRbndnvnff974fNwv8x9+NydEb7uToDTfoc0PnZlgxPjgTuGHZSOlaiAUTmVl3y6loXTMRBExkZl0AIManDVPasxv2zjPPHLnivv32sMv/eawEEFcnhh89ehFfvjyFTi+IhQB/jJ88cQ0AUNv6qX0vWgnwu/pY/iqabptXaoUWAojhBGP5qzqWZYJSAvyGnz97C5uNAqzCtsplA5Hvm3YBYLX+rOV2SgigGQ4AZtbA5ncVK4pDKgF+wy+cuwnH2Y3xSsmRuRxIhbfw+Z6wkEghgGY4DfvGA/wGsWJq8iaaIXfKjH9vkQMAtEInDFQCtpwKVzU2NUn/xv2olBxkhnoCSWg6+lMilQBi/IXTswD2boz8PTLag2rJgc2Rx5MYAkLd4GCum/seM5vIxpOfAGJ8lVPRKyUHlZKDgZ4hHD7WBwDSq8B837RLcj0ruAkoF5soF5u8t+1BXyoX6f6oODVwyT01cMkFGAiIQ5h0gssDzD/uL6IBANAUqIM6jbNkILIymVmDS+B4xbBhV1p5XgW4dlOhxD4RN67n/KkHkgDtuUl2P0CDV+TCEImAgRB3diQKKG96YwUzAaag8CUdwoUQwF8MEZhZI7ahiB/MBNAE0I+wTjBONOwa9f9SRJA3tYlmAVZh44EUAnQouypEIoCnFfZCdmfYsGuBLh4G7XUAMT4pIsg1EzRz3XAientQuHRqukS/XRZw1QFWYe/mo7jyviuFg/qA/Y5Y5lRm1kDxpx3H0m3oSICqYUjdLip5rggi9QI6B50Hc/1M13S6jvY5lwWikyBAbBqkA1wiGHUYSrBZ5I//+oaaRiOSD0fJAirSYH3D5SYq8o+jRAf8ZMgahjTsGnpT/aijig/Vx5EeSiOHiwCaBuioBRp2DWkjXARFECkERLPAwVyKuRfoTfUri3+A0wPKxWabF5hZQ4sXrJQftbk/6RF6UzveUUcVALhChVsDvCR4DeeZBv34/gNAhvn6MIMIESJhwq0B5WKzNQ22imKuOTwyjK/WL6F7eeH1EpqHCIXA7jA03t8NietvFHYMSwtIUkcCFt7dY3oI6wkREWQOHGK+lqYTBEGZRMohqRcLdwEEH47yorpdAHy9UKem6/mn20rdjErAsjXHtSg5VPVykY0Iq7CNzFBa2lgsSoEkpZ1btua6vKS9XLyLV0t3Aq/XOQ3qTfV3rCWk9rN+IoJIsArbsQxFV8qPuvw6oaSh9xLxaulOiwhSOcZ9QtwLpYell625LqIPr9/skJA/fhmy0idPhgiC8pGOPyzerz7Ax7X7qpdtQ5BQanthgpAwPjjjpg0TH9fut94UEYWMFKn9lRkiQuODMy7xhPyx67q30UJsxze9ary6Po/V9flY9hHr+VV/Wvr29Yn2PSTivUFvWMh+dlimSNQJZlqhohqJIoBANwn/NH4DWofcc7OlLLwAAAAASUVORK5CYII="
+                    alt="Volumen alto"
+                    draggable="false"
+                >
+            </button>
+
+            <div class="volume-popup" id="volumePopup">
+                <div class="volume-popup-title">VOLUMEN</div>
+
+                <div class="volume-row">
+                    <input
+                        class="volume-slider"
+                        id="volumeSlider"
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="100"
+                        aria-label="Nivel de volumen"
+                    >
+                    <span class="volume-value" id="volumeValue">100%</span>
+                </div>
+
+                <button
+                    class="volume-mute-button"
+                    id="volumeMuteButton"
+                    type="button"
+                    onclick="toggleMute(event)"
+                >
+                    Silenciar
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="clock"
+            id="clock"
+        >
+            00:00
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   ANIMACIÓN DE BARRA DE TAREAS
+========================================================= */
+
+(function initTaskbarAutoHide() {
+    const taskbar = document.querySelector('.taskbar');
+    if (!taskbar) return;
+
+    let hideTimer = null;
+
+    function showTaskbar() {
+        clearTimeout(hideTimer);
+        taskbar.classList.add('taskbar-visible');
+    }
+
+    function scheduleHide() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+            if (!taskbar.matches(':hover') && !taskbar.matches(':focus-within')) {
+                taskbar.classList.remove('taskbar-visible');
+            }
+        }, 700);
+    }
+
+    document.addEventListener('mousemove', (event) => {
+        const distanceFromBottom = window.innerHeight - event.clientY;
+
+        // Acercar el mouse a los últimos 70 px de la pantalla muestra la barra.
+        if (distanceFromBottom <= 70) {
+            showTaskbar();
+        } else if (!taskbar.matches(':hover') && !taskbar.matches(':focus-within')) {
+            scheduleHide();
+        }
+    });
+
+    taskbar.addEventListener('mouseenter', showTaskbar);
+    taskbar.addEventListener('mouseleave', scheduleHide);
+    taskbar.addEventListener('focusin', showTaskbar);
+    taskbar.addEventListener('focusout', scheduleHide);
+
+    // En pantallas táctiles la dejamos visible para que siga siendo usable.
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+        taskbar.classList.add('taskbar-visible');
+    }
+})();
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+const wallpaper = document.getElementById("video-wallpaper");
+
+wallpaper.muted = true;
+wallpaper.defaultMuted = true;
+wallpaper.playsInline = true;
+wallpaper.loop = true;
+
+wallpaper.volume = 0;
+
+wallpaper.play().catch(function() {
+    console.log("El navegador bloqueó el autoplay.");
+});
+
+
+/* =========================================================
+   SISTEMA DE VENTANAS
+========================================================= */
+
+const windows = {};
+
+let highestZ = 100;
+
+
+/* ---------------------------------------------------------
+   ABRIR
+--------------------------------------------------------- */
+
+function openWindow(id) {
+    const windowElement = document.getElementById(id);
+    if (!windowElement) return;
+    if (id === "music") {
+        windowElement.style.display = "block";
+        windowElement.classList.remove("music-absorbing-in", "music-absorbing-out");
+        void windowElement.offsetWidth;
+        windowElement.classList.add("music-absorbing-in");
+        windowElement.addEventListener("animationend", function handler(e) {
+            if (e.animationName === "musicAbsorbIn") {
+                windowElement.classList.remove("music-absorbing-in");
+                windowElement.removeEventListener("animationend", handler);
+            }
+        });
+        windowElement.style.zIndex = ++highestZ;
+        createTaskButton(id);
+        return;
+    }
+    windowElement.style.display = "block";
+    windowElement.style.zIndex = ++highestZ;
+    createTaskButton(id);
+}
+
+
+/* ---------------------------------------------------------
+   CERRAR
+--------------------------------------------------------- */
+
+function closeWindow(id) {
+    const windowElement = document.getElementById(id);
+    if (!windowElement) return;
+    if (id === "music") {
+        if (windowElement.classList.contains("music-absorbing-out")) return;
+        windowElement.classList.remove("music-absorbing-in");
+        void windowElement.offsetWidth;
+        windowElement.classList.add("music-absorbing-out");
+
+        // El cierre se ejecuta después de terminar la animación.
+        // Usamos un temporizador además de animationend para que funcione
+        // incluso si otro elemento del reproductor intercepta el evento.
+        setTimeout(function () {
+            windowElement.style.display = "none";
+            windowElement.classList.remove("music-absorbing-out");
+
+            const taskButton = document.querySelector(`[data-window-id="${id}"]`);
+            if (taskButton) taskButton.remove();
+        }, 340);
+
+        return;
+    }
+    windowElement.style.display = "none";
+    const taskButton = document.querySelector(`[data-window-id="${id}"]`);
+    if (taskButton) taskButton.remove();
+}
+
+
+/* ---------------------------------------------------------
+   MINIMIZAR
+--------------------------------------------------------- */
+
+function minimizeWindow(id) {
+
+    const win = document.getElementById(id);
+
+    if (!win) return;
+
+    win.style.display = "none";
+
+    win.dataset.minimized = "true";
+
+    updateTaskButton(id);
+
+}
+
+
+/* ---------------------------------------------------------
+   MAXIMIZAR
+--------------------------------------------------------- */
+
+function maximizeWindow(id) {
+
+    const win = document.getElementById(id);
+
+    if (!win) return;
+
+
+    if (win.dataset.maximized === "true") {
+
+        win.style.left =
+            win.dataset.oldLeft;
+
+        win.style.top =
+            win.dataset.oldTop;
+
+        win.style.width =
+            win.dataset.oldWidth;
+
+        win.style.height =
+            win.dataset.oldHeight;
+
+        win.dataset.maximized = "false";
+
+    }
+
+    else {
+
+        win.dataset.oldLeft =
+            win.style.left;
+
+        win.dataset.oldTop =
+            win.style.top;
+
+        win.dataset.oldWidth =
+            win.style.width;
+
+        win.dataset.oldHeight =
+            win.style.height;
+
+
+        win.style.left = "0px";
+
+        win.style.top = "0px";
+
+        win.style.width = "100%";
+
+        win.style.height =
+            "calc(100vh - 42px)";
+
+        win.dataset.maximized = "true";
+
+    }
+
+    bringToFront(win);
+
+}
+
+
+/* ---------------------------------------------------------
+   TRAER AL FRENTE
+--------------------------------------------------------- */
+
+function bringToFront(win) {
+
+    highestZ++;
+
+    win.style.zIndex = highestZ;
+
+    document.querySelectorAll(".window")
+        .forEach(w =>
+            w.classList.remove("active")
+        );
+
+    win.classList.add("active");
+
+    updateTaskButtons();
+
+}
+
+
+/* ---------------------------------------------------------
+   BOTONES DE LA BARRA
+--------------------------------------------------------- */
+
+function createTaskButton(id) {
+
+    const container =
+        document.getElementById("taskButtons");
+
+    let button =
+        document.getElementById("task-" + id);
+
+
+    if (button) {
+
+        updateTaskButton(id);
+
+        return;
+    }
+
+
+    button =
+        document.createElement("div");
+
+    button.className =
+        "task-button";
+
+    button.id =
+        "task-" + id;
+
+
+    const win =
+        document.getElementById(id);
+
+
+    button.innerText =
+        win.querySelector(".title").innerText;
+
+
+    button.onclick = function() {
+
+        const windowElement =
+            document.getElementById(id);
+
+
+        if (
+            windowElement.style.display === "none"
+        ) {
+
+            windowElement.style.display =
+                "block";
+
+            windowElement.dataset.minimized =
+                "false";
+
+            bringToFront(windowElement);
+
+        }
+
+        else {
+
+            if (
+                windowElement.classList.contains("active")
+            ) {
+
+                minimizeWindow(id);
+
+            }
+
+            else {
+
+                bringToFront(windowElement);
+
+            }
+
+        }
+
+    };
+
+
+    container.appendChild(button);
+
+    updateTaskButtons();
+
+}
+
+
+/* ---------------------------------------------------------
+   ACTUALIZAR BOTONES
+--------------------------------------------------------- */
+
+function updateTaskButton(id) {
+
+    const button =
+        document.getElementById("task-" + id);
+
+    const win =
+        document.getElementById(id);
+
+
+    if (!button || !win) return;
+
+
+    if (
+        win.dataset.minimized === "true"
+    ) {
+
+        button.classList.remove("active");
+
+    }
+
+    else {
+
+        button.classList.add("active");
+
+    }
+
+}
+
+
+function updateTaskButtons() {
+
+    document.querySelectorAll(".task-button")
+        .forEach(button => {
+
+            const id =
+                button.id.replace("task-", "");
+
+            updateTaskButton(id);
+
+        });
+
+}
+
+
+/* ---------------------------------------------------------
+   ELIMINAR BOTÓN
+--------------------------------------------------------- */
+
+function removeTaskButton(id) {
+
+    const button =
+        document.getElementById("task-" + id);
+
+    if (button) {
+        button.remove();
+    }
+
+}
+
+
+/* =========================================================
+   ARRASTRAR VENTANAS
+========================================================= */
+
+let dragging = false;
+
+let dragWindow = null;
+
+let offsetX = 0;
+let offsetY = 0;
+
+
+function startDrag(event, id) {
+
+    const win =
+        document.getElementById(id);
+
+
+    if (
+        event.target.closest(".win-button")
+    ) {
+        return;
+    }
+
+
+    bringToFront(win);
+
+
+    if (
+        win.dataset.maximized === "true"
+    ) {
+        return;
+    }
+
+
+    dragging = true;
+
+    dragWindow = win;
+
+
+    const rect =
+        win.getBoundingClientRect();
+
+
+    offsetX =
+        event.clientX - rect.left;
+
+    offsetY =
+        event.clientY - rect.top;
+
+}
+
+// Permite mover el reproductor agarrándolo por la franja superior,
+// sin interferir con sus botones ni con la barra de progreso.
+function startMusicDrag(event) {
+    const win = document.getElementById("music");
+    if (!win || event.button !== 0) return;
+    if (event.target.closest("button")) return;
+
+    const rect = win.getBoundingClientRect();
+    const localY = event.clientY - rect.top;
+    if (localY > 25) return;
+
+    event.preventDefault();
+    bringToFront(win);
+    if (win.dataset.maximized === "true" || win.classList.contains("pixel-maximized")) return;
+
+    // Cambia de anclaje derecho a coordenadas left/top para que el arrastre sea natural.
+    win.style.left = rect.left + "px";
+    win.style.top = rect.top + "px";
+    win.style.right = "auto";
+    dragging = true;
+    dragWindow = win;
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+}
+
+document.getElementById("music")?.addEventListener("mousedown", startMusicDrag);
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (
+            !dragging ||
+            !dragWindow
+        ) return;
+
+
+        let x =
+            event.clientX - offsetX;
+
+        let y =
+            event.clientY - offsetY;
+
+
+        const maxX =
+            window.innerWidth -
+            dragWindow.offsetWidth;
+
+
+        const maxY =
+            window.innerHeight -
+            42 -
+            dragWindow.offsetHeight;
+
+
+        x =
+            Math.max(
+                0,
+                Math.min(x, maxX)
+            );
+
+
+        y =
+            Math.max(
+                0,
+                Math.min(y, maxY)
+            );
+
+
+        dragWindow.style.left =
+            x + "px";
+
+        dragWindow.style.top =
+            y + "px";
+
+    }
+);
+
+
+document.addEventListener(
+    "mouseup",
+    function() {
+
+        dragging = false;
+
+        dragWindow = null;
+
+    }
+);
+
+
+/* =========================================================
+   CLICK EN VENTANA
+========================================================= */
+
+document.querySelectorAll(".window")
+    .forEach(win => {
+
+        win.addEventListener(
+            "mousedown",
+            function() {
+
+                bringToFront(win);
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   MENÚ INICIO
+========================================================= */
+
+function toggleStart() {
+
+    document
+        .getElementById("startMenu")
+        .classList.toggle("open");
+
+}
+
+
+document.addEventListener(
+    "mousedown",
+    function(event) {
+
+        const menu =
+            document.getElementById("startMenu");
+
+        const start =
+            document.querySelector(".start-button");
+
+
+        if (
+            menu.classList.contains("open") &&
+            !menu.contains(event.target) &&
+            !start.contains(event.target)
+        ) {
+
+            menu.classList.remove("open");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RELOJ
+========================================================= */
+
+function updateClock() {
+
+    const now =
+        new Date();
+
+
+    let hours =
+        String(now.getHours())
+        .padStart(2,"0");
+
+
+    let minutes =
+        String(now.getMinutes())
+        .padStart(2,"0");
+
+
+    document.getElementById("clock")
+        .innerText =
+        hours + ":" + minutes;
+
+}
+
+
+updateClock();
+
+setInterval(
+    updateClock,
+    1000
+);
+
+
+/* =========================================================
+   APAGAR
+========================================================= */
+
+function shutdown() {
+
+    document.body.innerHTML = `
+
+        <div style="
+            width:100vw;
+            height:100vh;
+            background:#050505;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            font-family:Courier New,monospace;
+            font-size:20px;
+        ">
+
+            <div style="
+                font-size:70px;
+                margin-bottom:20px;
+            ">
+                💤
+            </div>
+
+            <div>
+                El equipo se está apagando...
+            </div>
+
+            <div style="
+                margin-top:20px;
+                color:#888;
+                font-size:12px;
+            ">
+                Puedes recargar la página para volver.
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ABRIR PAINT AL CARGAR
+========================================================= */
+
+window.onload = function() {
+
+    openWindow("paint");
+
+    const video =
+        document.getElementById("video-wallpaper");
+
+    video.muted = true;
+
+    video.volume = 0;
+
+    video.play().catch(function() {});
+
+};
+
+
+/* =========================================================
+   REPRODUCTOR DE MÚSICA — IMAGEN ORIGINAL
+========================================================= */
+
+const musicAudio = document.getElementById("musicAudio");
+const playerStatus = document.getElementById("playerStatus");
+const songTitle = document.getElementById("songTitle");
+const songArtist = document.getElementById("songArtist");
+const currentTimeEl = document.getElementById("currentTime");
+const durationEl = document.getElementById("duration");
+
+let shuffleEnabled = false;
+let musicSourceIndex = 0;
+
+// El HTML está dentro de "Leshyta folder html" y "Musica" es su carpeta hermana.
+const musicSources = [
+    // =====================================================
+    // MUSICA 1 - YA CONFIGURADA
+    // =====================================================
+    {
+        src: "../Musica/nuts - Lil Peep.mp3",
+        title: "Nuts",
+        artist: "Lil Peep"
+    },
+
+    // =====================================================
+    // MUSICA 2 - YA CONFIGURADA
+    // =====================================================
+    {
+        src: "../Musica/Cigarettes out the Window - TV Girl.mp3",
+        title: "Cigarettes out the Window",
+        artist: "TV Girl"
+    },
+
+    // =====================================================
+    // MUSICA 3 - YA CONFIGURADA
+    // =====================================================
+    {
+        src: "../Musica/frou frou - A New Kind Of Love - SEREN.mp3",
+        title: "A New Kind Of Love",
+        artist: "Frou Frou / SEREN"
+    },
+
+    // =====================================================
+    // RANURAS 4 - 10
+    // Solo cambia src, title y artist.
+    // Descomenta una ranura cuando quieras agregarla.
+    // =====================================================
+
+    // MUSICA 4
+     {
+         src: "../Musica/idontwannabeyouanymore - Billie Eilish.mp3",
+         title: "I Don't Want To Be You",
+         artist: "Billie Eilish"
+     },
+
+    // MUSICA 5
+     {
+         src: "../Musica/Llorar - Los Socios Del Ritmo.mp3",
+         title: "Llorar",
+         artist: "Los Socios Del Ritmo"
+     },
+
+    // MUSICA 6
+     {
+         src: "../Musica/Buenos Tiempos - Dillom.mp3",
+         title: "Buenos Tiempos",
+         artist: "Dillom"
+     },
+
+    // MUSICA 7
+     {
+         src: "../Musica/ni pedo - Peso Pluma.mp3",
+         title: "Ni Puedo",
+         artist: "Peso Pluma"
+     },
+
+    // MUSICA 8
+     {
+         src: "../Musica/back to friends - sombr.mp3",
+         title: "Back to Friends",
+         artist: "Sombr"
+     },
+
+    // MUSICA 9
+     {
+         src: "../Musica/Siesta Freestyle - Lewis Ofman.mp3",
+         title: "Siesta Freestyle",
+         artist: "Lewis Ofman"
+     },
+
+    // MUSICA 10
+     {
+         src: "../Musica/Un Sueño - Los Ángeles De Charly.mp3",
+         title: "Un Sueño",
+         artist: "Los Ángeles De Charly"
+     }
+];
+
+// Un video de fondo por canción. Todos se reproducen en bucle.
+// Coloca Wallpaper2.mp4 y Wallpaper3.mp4 en la carpeta Fondowallpaper.
+const wallpaperSources = [
+    "../Fondowallpaper/Wallpaper.mp4",
+    "../Fondowallpaper/Wallpaper 2.mp4",
+    "../Fondowallpaper/Wallpaper 3.mp4",
+    "../Fondowallpaper/Wallpaper 4.mp4",
+    "../Fondowallpaper/Wallpaper 5.mp4",
+    "../Fondowallpaper/Wallpaper 6.mp4"
+];
+
+let wallpaperShowingNext = false;
+let wallpaperCurrentPath = "../Fondowallpaper/Wallpaper.mp4";
+let wallpaperSwapToken = 0;
+
+let lastRandomWallpaperIndex = -1;
+
+function wallpaperIndexFromPath(path) {
+    return wallpaperSources.indexOf(path);
+}
+
+function changeWallpaperForSong(index) {
+
+    // Elegir un wallpaper aleatorio
+    // sin repetir el que está actualmente.
+    const currentIndex = wallpaperIndexFromPath(wallpaperCurrentPath);
+
+    const available = wallpaperSources
+        .map((_, i) => i)
+        .filter(i => i !== currentIndex);
+
+    const wallpaperIndex =
+        available[Math.floor(Math.random() * available.length)];
+
+    const nextSource = wallpaperSources[wallpaperIndex];
+
+    if (!nextSource || nextSource === wallpaperCurrentPath) {
+        return;
+    }
+
+    const front = document.getElementById(
+        wallpaperShowingNext
+            ? "video-wallpaper-next"
+            : "video-wallpaper"
+    );
+
+    const back = document.getElementById(
+        wallpaperShowingNext
+            ? "video-wallpaper"
+            : "video-wallpaper-next"
+    );
+
+    if (!front || !back) return;
+
+    const token = ++wallpaperSwapToken;
+
+    let finished = false;
+    let playRequested = false;
+
+    back.pause();
+    back.removeAttribute("src");
+    back.load();
+
+    back.style.transition = "opacity 900ms ease-in-out";
+    front.style.transition = "opacity 900ms ease-in-out";
+
+    back.style.opacity = "0";
+
+    back.muted = true;
+    back.loop = true;
+    back.playsInline = true;
+    back.preload = "auto";
+
+    back.src = nextSource;
+
+    const fail = () => {
+
+        if (token !== wallpaperSwapToken || finished) {
+            return;
+        }
+
+        finished = true;
+
+        back.pause();
+        back.style.opacity = "0";
+
+        front.style.opacity = "1";
+
+        console.error(
+            "No se pudo cargar el wallpaper:",
+            nextSource,
+            "Código de error:",
+            back.error ? back.error.code : "desconocido"
+        );
+    };
+
+    const reveal = () => {
+
+        if (
+            token !== wallpaperSwapToken ||
+            finished ||
+            playRequested
+        ) {
+            return;
+        }
+
+        if (
+            back.readyState <
+            HTMLMediaElement.HAVE_CURRENT_DATA
+        ) {
+            return;
+        }
+
+        playRequested = true;
+
+        back.play().then(() => {
+
+            if (
+                token !== wallpaperSwapToken ||
+                finished
+            ) {
+                return;
+            }
+
+            finished = true;
+
+            void back.offsetWidth;
+
+            requestAnimationFrame(() => {
+
+                if (token !== wallpaperSwapToken) {
+                    return;
+                }
+
+                back.style.opacity = "1";
+                front.style.opacity = "0";
+
+                wallpaperShowingNext =
+                    !wallpaperShowingNext;
+
+                wallpaperCurrentPath =
+                    nextSource;
+
+                window.setTimeout(() => {
+
+                    if (
+                        token !== wallpaperSwapToken
+                    ) {
+                        return;
+                    }
+
+                    front.pause();
+                    front.style.opacity = "0";
+
+                }, 950);
+
+            });
+
+        }).catch(fail);
+    };
+
+    back.addEventListener(
+        "loadeddata",
+        reveal,
+        { once: true }
+    );
+
+    back.addEventListener(
+        "canplay",
+        reveal,
+        { once: true }
+    );
+
+    back.addEventListener(
+        "error",
+        fail,
+        { once: true }
+    );
+
+    back.load();
+
+    if (
+        back.readyState >=
+        HTMLMediaElement.HAVE_CURRENT_DATA
+    ) {
+        reveal();
+    }
+}
+
+const randomPlayerColors = [
+    { main: "#ff77aa", light: "#ffc0d9", hue: "320deg" },
+    { main: "#a477ff", light: "#d2bfff", hue: "250deg" },
+    { main: "#70c9ff", light: "#b8e7ff", hue: "300deg" },
+    { main: "#77dd88", light: "#b8ffc0", hue: "100deg" },
+    { main: "#ffcc66", light: "#ffe5aa", hue: "45deg" },
+    { main: "#ff7777", light: "#ffc0c0", hue: "78deg" },
+    { main: "#66dddd", light: "#b8ffff", hue: "180deg" },
+    { main: "#dd77ff", light: "#efb8ff", hue: "280deg" }
+];
+
+function applyRandomPlayerColor() {
+    const musicWindow = document.getElementById("music");
+    if (!musicWindow) return;
+
+    const color = randomPlayerColors[
+        Math.floor(Math.random() * randomPlayerColors.length)
+    ];
+
+    musicWindow.style.setProperty("--player-main-color", color.main);
+    musicWindow.style.setProperty("--player-light-color", color.light);
+    musicWindow.style.setProperty("--player-hue", color.hue);
+    musicWindow.classList.add("theme-random");
+}
+
+function setMusicSource(index, autoplay = false) {
+    if (!musicAudio || !musicSources.length) return;
+
+    musicSourceIndex = (index + musicSources.length) % musicSources.length;
+    const song = musicSources[musicSourceIndex];
+    const musicWindow = document.getElementById("music");
+
+    if (musicWindow) {
+        musicWindow.classList.remove("theme-blue", "theme-red", "theme-random");
+
+        musicWindow.style.removeProperty("--player-main-color");
+        musicWindow.style.removeProperty("--player-light-color");
+        musicWindow.style.removeProperty("--player-hue");
+
+        // Canciones 1, 2 y 3 conservan sus colores actuales.
+        if (musicSourceIndex === 1) {
+            musicWindow.classList.add("theme-blue");
+        } else if (musicSourceIndex === 2) {
+            musicWindow.classList.add("theme-red");
+        } else if (musicSourceIndex >= 3) {
+            // Desde la canción 4 en adelante: color aleatorio.
+            applyRandomPlayerColor();
+        }
+    }
+
+    changeWallpaperForSong(musicSourceIndex);
+
+    musicAudio.pause();
+    musicAudio.src = song.src;
+    musicAudio.load();
+
+    if (songTitle) songTitle.textContent = song.title;
+    if (songArtist) songArtist.textContent = song.artist;
+    if (currentTimeEl) currentTimeEl.textContent = "0:00";
+    if (durationEl) durationEl.textContent = "0:00";
+
+    const progress = document.getElementById("pixelProgress");
+    if (progress) progress.style.width = "0px";
+
+    if (autoplay) {
+        startMusicVisualizer();
+        musicAudio.play().then(() => {
+            playerVisualPlaying = true;
+            setPlayerVisual(true);
+        }).catch(() => {
+            if (playerStatus) {
+                playerStatus.textContent = "No se pudo reproducir el archivo";
+            }
+        });
+    }
+}
+
+function formatTime(seconds) {
+    if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+    return Math.floor(seconds / 60) + ":" + String(Math.floor(seconds % 60)).padStart(2, "0");
+}
+
+function updateMusicInfo() {
+    if (!musicAudio) return;
+    if (currentTimeEl) currentTimeEl.textContent = formatTime(musicAudio.currentTime);
+    if (durationEl) durationEl.textContent = formatTime(musicAudio.duration);
+    const progress = document.getElementById("pixelProgress");
+    if (progress && Number.isFinite(musicAudio.duration) && musicAudio.duration > 0) {
+        progress.style.width = (Math.max(0, Math.min(1, musicAudio.currentTime / musicAudio.duration)) * 396) + "px";
+    }
+}
+
+function setPlayerVisual(isPlaying) {
+    const playImage = document.querySelector(".player-image-play");
+    const pauseImage = document.querySelector(".player-image-pause");
+    if (playImage) playImage.style.display = isPlaying ? "none" : "block";
+    if (pauseImage) pauseImage.style.display = isPlaying ? "block" : "none";
+}
+
+let playerVisualPlaying = false;
+
+// Analizador de audio: convierte los graves de la canción en un pulso visual.
+let musicAudioContext = null;
+let musicAnalyser = null;
+let musicFrequencyData = null;
+let musicSourceNode = null;
+let musicPulseFrame = 0;
+let smoothedPulse = 0;
+let energyPeak = 0.3;     // referencia máxima reciente
+let energyFloor = 0.05;   // referencia mínima reciente
+let energyAvg = 0;        // promedio lento para detectar golpes
+let kick = 0;             // impulso de golpe (decae rápido)
+let lastBeatTime = 0;
+
+function setupMusicVisualizer() {
+    if (musicAnalyser || !musicAudio) return;
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    try {
+        musicAudioContext = new AudioContextClass();
+        musicAnalyser = musicAudioContext.createAnalyser();
+        musicAnalyser.fftSize = 2048;
+        musicAnalyser.smoothingTimeConstant = 0.3;
+        musicAnalyser.minDecibels = -90;
+        musicAnalyser.maxDecibels = -12;
+        musicFrequencyData = new Uint8Array(musicAnalyser.frequencyBinCount);
+        musicSourceNode = musicAudioContext.createMediaElementSource(musicAudio);
+        musicSourceNode.connect(musicAnalyser);
+        musicAnalyser.connect(musicAudioContext.destination);
+    } catch (error) {
+        console.warn("No se pudo iniciar el visualizador de audio:", error);
+    }
+}
+
+function animateMusicPulse() {
+    if (!musicAnalyser || !musicFrequencyData) {
+        musicPulseFrame = 0;
+        return;
+    }
+
+    musicAnalyser.getByteFrequencyData(musicFrequencyData);
+    const count = musicFrequencyData.length;
+    const binHz = musicAudioContext.sampleRate / musicAnalyser.fftSize;
+
+    // Promedio de una banda en Hz reales
+    const band = (f1, f2) => {
+        const a = Math.max(1, Math.floor(f1 / binHz));
+        const b = Math.max(a + 1, Math.ceil(f2 / binHz));
+        let sum = 0, n = 0;
+        for (let i = a; i < b && i < count; i++) {
+            sum += musicFrequencyData[i] / 255;
+            n++;
+        }
+        return n ? sum / n : 0;
+    };
+
+    const bass   = band(40, 160);    // bombo / bajo
+    const lowMid = band(160, 500);   // cuerpo de la música
+    const energy = bass * 0.7 + lowMid * 0.3;
+
+    const playing = musicAudio && !musicAudio.paused && !musicAudio.ended;
+    const now = performance.now();
+
+    let level = 0;
+
+    if (playing) {
+        // Auto-ajuste: el máximo baja lento, el mínimo sube lento
+        energyPeak = Math.max(energy, energyPeak * 0.995);
+        energyFloor = Math.min(energy, energyFloor + (energy - energyFloor) * 0.01);
+
+        // Nivel normalizado 0..1 (siempre aprovecha todo el rango)
+        const range = Math.max(0.12, energyPeak - energyFloor);
+        level = Math.max(0, Math.min(1, (energy - energyFloor) / range));
+
+        // Detector de golpes
+        energyAvg += (energy - energyAvg) * 0.06;
+        if (energy > energyAvg * 1.12 + 0.02 && now - lastBeatTime > 170) {
+            kick = 1;
+            lastBeatTime = now;
+        }
+    }
+
+    kick *= 0.88; // el golpe se apaga rápido
+
+    // Ataque rápido, caída suave
+    const response = level > smoothedPulse ? 0.55 : 0.14;
+    smoothedPulse += (level - smoothedPulse) * response;
+
+    // Respiración continua + golpe encima.
+    // Base 1.04 (evita bordes negros), llega hasta ~1.19
+    const scale = 1.04 + smoothedPulse * 0.08 + kick * 0.07;
+    document.documentElement.style.setProperty('--music-pulse-scale', scale.toFixed(4));
+
+    // Temblor leve ligado al golpe
+    const t = now / 1000;
+    const shake = kick * 1.2;
+    document.documentElement.style.setProperty('--music-shake-x', (Math.sin(t * 25) * shake).toFixed(2) + 'px');
+    document.documentElement.style.setProperty('--music-shake-y', (Math.cos(t * 29) * shake * 0.55).toFixed(2) + 'px');
+
+    if (playing || smoothedPulse > 0.003 || kick > 0.003) {
+        musicPulseFrame = requestAnimationFrame(animateMusicPulse);
+    } else {
+        musicPulseFrame = 0;
+        document.documentElement.style.setProperty('--music-pulse-scale', '1');
+        document.documentElement.style.setProperty('--music-shake-x', '0px');
+        document.documentElement.style.setProperty('--music-shake-y', '0px');
+    }
+}
+
+function startMusicVisualizer() {
+    setupMusicVisualizer();
+    if (musicAudioContext && musicAudioContext.state === "suspended") {
+        musicAudioContext.resume().catch(() => {});
+    }
+    if (!musicPulseFrame) musicPulseFrame = requestAnimationFrame(animateMusicPulse);
+}
+
+function toggleMusic(event) {
+    if (event) { event.preventDefault(); event.stopPropagation(); }
+    if (!musicAudio) return;
+    if (musicAudio.paused) {
+        startMusicVisualizer();
+        musicAudio.play().catch(() => {
+            if (playerStatus) playerStatus.textContent = "No se encontró el archivo de audio";
+        });
+    } else {
+        musicAudio.pause();
+    }
+}
+
+function previousSong(event) {
+    if (event) event.stopPropagation();
+    if (musicAudio.currentTime > 3) {
+        musicAudio.currentTime = 0;
+    } else {
+        setMusicSource(musicSourceIndex - 1, true);
+    }
+}
+
+function nextSong(event) {
+    if (event) event.stopPropagation();
+    const next = shuffleEnabled
+        ? (musicSources.length > 1 ? (musicSourceIndex + 1 + Math.floor(Math.random() * (musicSources.length - 1))) % musicSources.length : musicSourceIndex)
+        : musicSourceIndex + 1;
+    setMusicSource(next, true);
+}
+
+function toggleShuffle(event) {
+    if (event) event.stopPropagation();
+    shuffleEnabled = !shuffleEnabled;
+    if (playerStatus) playerStatus.textContent = shuffleEnabled ? "Aleatorio activado" : "Aleatorio desactivado";
+}
+
+function seekMusic(event) {
+    if (event) event.stopPropagation();
+    if (!musicAudio || !Number.isFinite(musicAudio.duration) || musicAudio.duration <= 0) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = Math.max(0, Math.min(rect.width, event.clientX - rect.left));
+    musicAudio.currentTime = (x / rect.width) * musicAudio.duration;
+}
+
+setMusicSource(0);
+if (musicAudio) {
+    setPlayerVisual(false);
+    musicAudio.addEventListener("loadedmetadata", updateMusicInfo);
+    musicAudio.addEventListener("timeupdate", updateMusicInfo);
+    musicAudio.addEventListener("error", function () {
+        if (playerStatus) playerStatus.textContent = "No se pudo cargar: " + musicSources[musicSourceIndex].title;
+    });
+    musicAudio.addEventListener("play", function () {
+        startMusicVisualizer();
+        playerVisualPlaying = true; setPlayerVisual(true);
+        if (playerStatus) playerStatus.textContent = "Reproduciendo";
+    });
+    musicAudio.addEventListener("pause", function () {
+        playerVisualPlaying = false; setPlayerVisual(false);
+        if (playerStatus) playerStatus.textContent = "Pausado";
+    });
+    musicAudio.addEventListener("ended", function () {
+        if (shuffleEnabled) {
+            const pick = musicSources.length > 1 ? (musicSourceIndex + 1 + Math.floor(Math.random() * (musicSources.length - 1))) % musicSources.length : musicSourceIndex;
+            setMusicSource(pick, true);
+        } else if (musicSourceIndex < musicSources.length - 1) {
+            setMusicSource(musicSourceIndex + 1, true);
+        } else {
+            setPlayerVisual(false);
+            if (playerStatus) playerStatus.textContent = "Lista terminada";
+        }
+    });
+}
+
+/* =========================================================
+   CONTROL DE VOLUMEN — BARRA DE TAREAS
+========================================================= */
+
+const volumeIcons = {
+    mute: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA2pJREFUeJztm71v00AYxp86H1KVC5FDpXZhKVIhElIXBtQRUVSpMyMTU2HIVP6IstChbPwDMLO0UscOiBGpVYcKtlaJHCVxikjiC0N7qeP46872+RzymzrUee998t5z713OwJw5yvG0/GYkK1ZeVqAwbFTqoz41pcZUQoCNSn0EACz5okakxU5VAFbqLPHV1Ve4uPgKmVWQigDOOf7k8VsAwHW/IX0sUgVwlvp6bQfWaEHmEKaQIgBLnLFe25ERNhSJCuBM/OXz9+j8baLdHCQZlotEBHBLHACIrqFzmUREcWIVwJn41otdUHo3x80WjTNcLMQigFvibmSmApwJhWV7cxdWwJMqzX/AQ4A+Nbm6se1N92/cidmiqCwVPEWwqPwl0VUAlvzWszqAyYGxv1ceFtBrUQw51nEVp4Am8lC5muN+huhCoRKHe1Qs+R6no5stCrNFUSos4cHaIgCk3gUCAgJ0DQtdw4oUdDFfjfR8nAQKkIYxyYSrAsht+Yt4AABY6vVBYiZoh+gal8GpZoZcozFd5j4zN67Pue0HVED616HafiCSAKWAcqYZMNDQAhBB41Md4UYI4G+GGETXlNkUhRbAzQCdBO0EVSQWE+Rd2mZuFVDN2XmIJADPVtiOSs2Q9JGw5FUxQa4zQVLNgUasdq/pktami6sPaDcnBx+llDNngl77gKyTihsRXYPRGKYRegpfAZKal3+GRiKfK0KkvYBKy5koXBmIngQBap4GAZwmGPUwlNEx1Jj/QEQTjLIKZG4Z9MLrTDALhyEAZyfo5gFZ7wUiVYDoKnCvmldmL8CVgZsJZn0pFPppjGE/Euc5Dbq6vOINmxhCfUBJ1wJPhP1YXlkWfjZuuEywa1goV3O2w9BsOL0fvgIcff8Y6kPC3hBRkVguSX07+gDA+3KUnd6gCTj2Qmn+Ah1L5KDrccDdXqA3uLkoSe4Xx0shE+C638DvX18AAD+6n6WoEmsQrwuSwKQAwM3tEBUEiHURP2nvL5y098cDPzzec/2/dnOQzUYoLHYhDo/3xkKwpkmFu0GMxEfinBa1R6+nBJgZD/DD+a4Ae0kCmCEP8MM+LYoawc+zT7JC+5LaZLS/NlNbewdgxivAiT3B0/MDnJ4fpDIOJezY7UXJmTPBMNiFkCWAksh8dXbO/84/yTBv73jPpFAAAAAASUVORK5CYII=",
+    low: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA8dJREFUeJztW79PE1Ec/3CUYulB00oCDsYEErSJkcXBMDgYa0hYXBwcnHRBB1zwH3DDRQbcnE10NC6QMDIYJ2OCMhDdIDStpdeStndXB3hwPe6u99699+618pkYuPu+74fv9/P9wTvgAhdQDrdHn7Zl2UrIMhQGc5mldtM2pNpUgoC5zFIbAIjzSU2XZjtWAkioE8enph5hd/cTZEZBLAS4c/zmjecAgHrzQPpZpBLgDvXZ/CKs9oDMI5yDFAKI4wSz+UUZZkNBKAFuxx/ce4XDRhGVYkukWSoIIcDLcQDQsxoO90RYZAdXAtyOz99fhm2f5bhRtnma4wIuBHg57oWeiQC3Q2GxUFiG1eVJlfIf8CGgaRtU3dhCwfsv7oZRtpEZH/IlwbLll0RPAojz83eWAHQejPw8OT2EWtmGSVHHVUwBjeWh0dwg9TN6lsmUcFCfijhfo1R0o2zDKNtID43j6kwKAGLvAgEGAqolC9WSFcloKpGL9DxPdCUgDmGSCaoI0E/Cn0UDAMBi6IMK0y+FbociK5Oe1agEjlYMG6aBu9eeCSOB6jSGR+4TcaN6z0k/oAKk1ybV5oFIBKS7hLPNUUDzqYdC0iA0ATqj8KkO5kYIoG+GCPSspsxQFJoALwF0o9skqCK4iCBtaWOtArfSj7lTzIUA1ZSdBpEIoBmFnVBpMpR+EuK8KiJItRPUc4OwI0a7X7oEDV0Nsx7NaACo+oBKsfPwUUK551phvzmg1xGLGulZDaUDMw7T5xBIgKhlyJFZEvJeFkSaBWSWs7HciJD3UnnAugkC2LZBMkAlglGXoQSHJfr8P/orZtCIFMNRqkDPlUE/+O0EeS1DGmYdw4nj/P9e+8Bdlak6QS8NkNELNMw6kpoCIugGaxUYyyVCzwLDiRFh+Q9QEuAlgrJK4bfqeyFNCdO/xgicK3GabdD+3j6VTRG5T8DUB6SzWteNcBAmJieYn+UNKhGsliyM5gYdy9De/79hIAEbX9+GeknYGyIsyFy6IuzdAKdLUl823gDwvxzlRK1VBFyzUNDQ9fnXa6FhxuXl3a7HAWezQK11fFFSv5w8LYWEgHrzAH9+fwQgTvXd4GrE74Ik0EkAcHw7RAUCuBbxrcrqwFZl9fTg65srnr9XKbaUWYoK6WKcRKxvrpwSQZomFe4GEQg/iTst8tefnCOgbzQgCO5vBchHEkAfaUAQnGmR1HT8+PlOlulAxJaMzs9m8jMvAPR5BLjhdHB7Zw3bO2uxnEMJOfb6ULLvRDAMnETIIkBJyPx09gL/O/4BcqOR7y5RksIAAAAASUVORK5CYII=",
+    medium: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABDNJREFUeJztW79PE1Ec/3CWIvagaUOiDsYEE7WJgYXBMDgYMSYuLg4OTrqgAy74D7jJAgO66GyiozEhgMQ4MBgXjQlqotENQtNSuJa0XO8c6oPjem3f99177w7lMzHc63vfz32/n+8P3gGHOETsMNJ3x9W1V0LXRjwYTU+4NcfSumcsCBhNT7gAwIxPGqa2vSMlgLk6M3xw8CZ+/nwFnV4QCQH+GL9w/h4AoFJb134WrQT4XX04N46626XzCE3QQgAznGE4N65jWy4oJcBv+NXLD7FZzaOU31G5LQlKCAgyHADMjIHNVRU7ikMqAX7Dr12ZhOPsxbhVdGRuh7EzD1wAWPgxLSwkUggIMjwIB8YD/Abx4vrYJOodVsqM/6rdyCaXTt91AeD972dkTwgkoOZYpGrs+ljwG/fDKjpID3S3JKHu6E+JgQQw469dnACw/2Ds7xNnulEuOrAJeTyOIWCILOrLHiGvMTNCWykH+VTM+DJR0a2iA6voINU9gFNnewFAehWY673h5npvkPSLTMBWoY6tQp26bB96E9lQ62WiIwFRCJNOkDzA/Ov+IhoAAHWBOogVO6oQWpnMjEESOKoYVm1rN8+rAOk0VkDsM3Ej/c7feiAO0J6bZPcDQRhK3XKHUre4vCYUAakO7uxIFFBqeuMFNwGmoPDFHcKFEEAvhhjMjBGboQg3AUEC6EenTjCOkCKC1NQmmgV4hY0CKQToUHZVCEUApRX2QnZnWLUrqNoVobXa6wBmfFxEkDQTNLNH4IT09lbh0q7pEn27PCDVAaX8/sOHceUDVwq36gMOOiKZU5kZA4V1O4qtm9CWAFXDkG27oOR3RRCqF9A56OzPHuN6huc5L0gWiE6CALFpkA6QRDDsMJRhs0CP/+0NNY1GKB8OkwVUpMHtDZdMlLKZoKxhSNWuoCfRiOvP5RfSVZlUCQZpgI5aoGpXkDRo4saLUB4gmgX6swnuXqAncUxZ/ANED9gq1Ju8wMwYWrzg49bzJvdnPQILkW2UAdBChXxBwkuC13DKNGhtdQ1Amvv5TgYxIkTCRKgOSGWMjhPhdjh+4rjwWtkQCoG9YWi0/zdkrr+Rb7h+UuCdtCVg4cM014/w3hARQfroSe5ng3SiE6RcknqzMAWg9eUoL8o7ecDXC7Vrul5/e6TUzQIJWC7NkDZll6rmFvmIKOV3kB5IShuLhSmQpLRzy6WZLi9pc4tTmF963PL5uEyDAMkDET8RrUgo5XdiMxRV0tB7iZhferxLBKsco74h7oXSy9LLpZkupg9v3zVIyJ27DVnpk5IhWkH5SMcfFp9WnuLL1yeqt+WGdl8c6bvjJg0TNcfa/VKEpcFKbR2/f70EIJbTRRBZMHo/m8mdvQ8gGgIiu77pNXDl+yxWvs9Gco5YyHHQh5L/fAgEwUuELgJiCZ2fzh7if8cfcr+jBvAfYlEAAAAASUVORK5CYII=",
+    high: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABIpJREFUeJztW79PFEEYfSzHIbB4uQsJWBgTSdRLjDQUhsLCiDGhobGwsMJGLbDRf8BOGynQRmsTbUyMiREkxoLC0GhMQBKNdhovdyz3y4O9XQucY9mbvZ2ZnZld1FcRbndnvnff974fNwv8x9+NydEb7uToDTfoc0PnZlgxPjgTuGHZSOlaiAUTmVl3y6loXTMRBExkZl0AIManDVPasxv2zjPPHLnivv32sMv/eawEEFcnhh89ehFfvjyFTi+IhQB/jJ88cQ0AUNv6qX0vWgnwu/pY/iqabptXaoUWAojhBGP5qzqWZYJSAvyGnz97C5uNAqzCtsplA5Hvm3YBYLX+rOV2SgigGQ4AZtbA5ncVK4pDKgF+wy+cuwnH2Y3xSsmRuRxIhbfw+Z6wkEghgGY4DfvGA/wGsWJq8iaaIXfKjH9vkQMAtEInDFQCtpwKVzU2NUn/xv2olBxkhnoCSWg6+lMilQBi/IXTswD2boz8PTLag2rJgc2Rx5MYAkLd4GCum/seM5vIxpOfAGJ8lVPRKyUHlZKDgZ4hHD7WBwDSq8B837RLcj0ruAkoF5soF5u8t+1BXyoX6f6oODVwyT01cMkFGAiIQ5h0gssDzD/uL6IBANAUqIM6jbNkILIymVmDS+B4xbBhV1p5XgW4dlOhxD4RN67n/KkHkgDtuUl2P0CDV+TCEImAgRB3diQKKG96YwUzAaag8CUdwoUQwF8MEZhZI7ahiB/MBNAE0I+wTjBONOwa9f9SRJA3tYlmAVZh44EUAnQouypEIoCnFfZCdmfYsGuBLh4G7XUAMT4pIsg1EzRz3XAientQuHRqukS/XRZw1QFWYe/mo7jyviuFg/qA/Y5Y5lRm1kDxpx3H0m3oSICqYUjdLip5rggi9QI6B50Hc/1M13S6jvY5lwWikyBAbBqkA1wiGHUYSrBZ5I//+oaaRiOSD0fJAirSYH3D5SYq8o+jRAf8ZMgahjTsGnpT/aijig/Vx5EeSiOHiwCaBuioBRp2DWkjXARFECkERLPAwVyKuRfoTfUri3+A0wPKxWabF5hZQ4sXrJQftbk/6RF6UzveUUcVALhChVsDvCR4DeeZBv34/gNAhvn6MIMIESJhwq0B5WKzNQ22imKuOTwyjK/WL6F7eeH1EpqHCIXA7jA03t8NietvFHYMSwtIUkcCFt7dY3oI6wkREWQOHGK+lqYTBEGZRMohqRcLdwEEH47yorpdAHy9UKem6/mn20rdjErAsjXHtSg5VPVykY0Iq7CNzFBa2lgsSoEkpZ1btua6vKS9XLyLV0t3Aq/XOQ3qTfV3rCWk9rN+IoJIsArbsQxFV8qPuvw6oaSh9xLxaulOiwhSOcZ9QtwLpYell625LqIPr9/skJA/fhmy0idPhgiC8pGOPyzerz7Ax7X7qpdtQ5BQanthgpAwPjjjpg0TH9fut94UEYWMFKn9lRkiQuODMy7xhPyx67q30UJsxze9ary6Po/V9flY9hHr+VV/Wvr29Yn2PSTivUFvWMh+dlimSNQJZlqhohqJIoBANwn/NH4DWofcc7OlLLwAAAAASUVORK5CYII="
+};
+
+let savedVolume = 1;
+let volumeBeforeMute = 1;
+let volumeMuted = false;
+
+function getVolumeLevel(volume) {
+    if (volume <= 0) return "mute";
+    if (volume <= 0.33) return "low";
+    if (volume <= 0.66) return "medium";
+    return "high";
+}
+
+function updateVolumeIcon() {
+    const icon = document.getElementById("volumeIcon");
+    const button = document.getElementById("volumeButton");
+    const value = document.getElementById("volumeValue");
+    const muteButton = document.getElementById("volumeMuteButton");
+    const slider = document.getElementById("volumeSlider");
+    if (!icon) return;
+
+    const audio = document.getElementById("musicAudio");
+    const volume = audio ? audio.volume : savedVolume;
+    const isMuted = audio ? audio.muted || audio.volume === 0 : volumeMuted;
+    const level = isMuted ? "mute" : getVolumeLevel(volume);
+
+    icon.src = volumeIcons[level];
+    icon.alt = level === "mute" ? "Volumen silenciado" :
+               level === "low" ? "Volumen bajo" :
+               level === "medium" ? "Volumen medio" : "Volumen alto";
+
+    if (button) button.title = isMuted ? "Volumen silenciado" : "Volumen";
+    if (value) value.textContent = Math.round(volume * 100) + "%";
+    if (slider) slider.value = Math.round(volume * 100);
+    if (muteButton) muteButton.textContent = isMuted ? "Activar sonido" : "Silenciar";
+}
+
+function applyVolume(value, remember = true) {
+    const audio = document.getElementById("musicAudio");
+    const numeric = Math.max(0, Math.min(100, Number(value) || 0));
+    const normalized = numeric / 100;
+    if (!audio) return;
+
+    audio.volume = normalized;
+
+    if (normalized > 0) {
+        audio.muted = false;
+        volumeMuted = false;
+        volumeBeforeMute = normalized;
+        savedVolume = normalized;
+    } else {
+        audio.muted = true;
+        volumeMuted = true;
+    }
+
+    if (remember) {
+        localStorage.setItem("pixelXPVolume", String(savedVolume));
+    }
+
+    updateVolumeIcon();
+}
+
+function toggleMute(event) {
+    if (event) event.stopPropagation();
+    const audio = document.getElementById("musicAudio");
+    if (!audio) return;
+
+    if (audio.muted || audio.volume === 0) {
+        const restore = volumeBeforeMute > 0 ? volumeBeforeMute : (savedVolume > 0 ? savedVolume : 1);
+        audio.volume = restore;
+        audio.muted = false;
+        volumeMuted = false;
+        savedVolume = restore;
+        localStorage.setItem("pixelXPVolume", String(savedVolume));
+    } else {
+        volumeBeforeMute = audio.volume;
+        audio.muted = true;
+        volumeMuted = true;
+    }
+
+    updateVolumeIcon();
+}
+
+function toggleVolumePopup(event) {
+    if (event) event.stopPropagation();
+    const popup = document.getElementById("volumePopup");
+    const button = document.getElementById("volumeButton");
+    if (!popup) return;
+
+    const open = popup.classList.toggle("open");
+    if (button) button.setAttribute("aria-expanded", String(open));
+    updateVolumeIcon();
+}
+
+(function initVolumeControl() {
+    const audio = document.getElementById("musicAudio");
+    const slider = document.getElementById("volumeSlider");
+    const popup = document.getElementById("volumePopup");
+    if (!audio || !slider) return;
+
+    const stored = Number(localStorage.getItem("pixelXPVolume"));
+    const initial = Number.isFinite(stored) && stored >= 0 && stored <= 1 ? stored : 1;
+
+    savedVolume = initial;
+    volumeBeforeMute = initial > 0 ? initial : 1;
+    audio.volume = initial;
+    audio.muted = initial === 0;
+    volumeMuted = audio.muted;
+
+    slider.addEventListener("input", function(event) {
+        event.stopPropagation();
+        applyVolume(this.value);
+    });
+
+    slider.addEventListener("click", function(event) {
+        event.stopPropagation();
+    });
+
+    if (popup) {
+        popup.addEventListener("click", function(event) {
+            event.stopPropagation();
+        });
+    }
+
+    document.addEventListener("click", function() {
+        const currentPopup = document.getElementById("volumePopup");
+        const currentButton = document.getElementById("volumeButton");
+        if (currentPopup) currentPopup.classList.remove("open");
+        if (currentButton) currentButton.setAttribute("aria-expanded", "false");
+    });
+
+    audio.addEventListener("volumechange", updateVolumeIcon);
+    updateVolumeIcon();
+})();
+
+</script>
+
+
+<script id="pixel-window-controls-script">
+(function () {
+  function getMusic() {
+    return document.getElementById("music");
+  }
+
+  window.pixelMinimizeMusic = function (event) {
+    if (event) event.stopPropagation();
+    const music = getMusic();
+    if (!music) return;
+
+    // Usa la función original del escritorio si existe.
+    if (typeof window.minimizeWindow === "function") {
+      window.minimizeWindow("music");
+      return;
+    }
+
+    // Respaldo: ocultar temporalmente y crear una forma de restaurarlo.
+    music.classList.add("pixel-hidden");
+    music.dataset.minimized = "true";
+  };
+
+  window.pixelMaximizeMusic = function (event) {
+    if (event) event.stopPropagation();
+    const music = getMusic();
+    if (!music) return;
+
+    const isMax = music.classList.toggle("pixel-maximized");
+
+    if (isMax) {
+      music.dataset.oldLeft = music.style.left || "";
+      music.dataset.oldTop = music.style.top || "";
+      music.dataset.oldTransform = music.style.transform || "";
+    }
+  };
+
+  window.pixelCloseMusic = function(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    closeWindow("music");
+  };
+
+  // Si la ventana se oculta por minimizar/cerrar, permite recuperarla
+  // con la función global showMusicWindow(), si el proyecto ya la utiliza.
+  window.showMusicWindow = function () {
+    const music = getMusic();
+    if (!music) return;
+
+    openWindow("music");
+    music.classList.remove("pixel-hidden");
+    music.dataset.minimized = "false";
+
+    // Si existe la función original para abrir ventanas, sincroniza su estado.
+    if (typeof window.restoreWindow === "function") {
+      try { window.restoreWindow("music"); } catch (e) {}
+    }
+  };
+})();
+</script>
+
+
+
+<script id="desktop-icons-drag-script">
+/* =========================================================
+   ICONOS DEL ESCRITORIO — ARRASTRAR COMO EN WINDOWS
+   - Click y arrastre para moverlos.
+   - Los iconos se ajustan a una cuadrícula para conservar
+     siempre una separación uniforme.
+   - No pueden ocupar el mismo espacio.
+   - Doble click sigue abriendo la aplicación.
+   - Las posiciones se guardan al recargar la página.
+========================================================= */
+(function initDesktopIconDragging() {
+    const desktop = document.querySelector(".desktop");
+    if (!desktop) return;
+
+    const icons = Array.from(desktop.querySelectorAll(".desktop-icon"));
+
+    // Evita el arrastre nativo de las imágenes del navegador.
+    icons.forEach(icon => {
+        icon.querySelectorAll("img").forEach(img => {
+            img.draggable = false;
+            img.addEventListener("dragstart", event => event.preventDefault());
+        });
+    });
+
+    const storageKey = "pixelXPDesktopIconPositions";
+
+    // Separación uniforme entre iconos.
+    // Los iconos miden aproximadamente 95px de ancho, por lo que
+    // 110px deja unos 15px de separación horizontal.
+    const GRID_X = 110;
+    const GRID_Y = 100;
+    const EDGE_X = 8;
+    const EDGE_Y = 8;
+
+    let positions = {};
+
+    try {
+        positions = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    } catch (e) {
+        positions = {};
+    }
+
+    function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+    }
+
+    function gridValue(value, step, edge) {
+        return edge + Math.round((value - edge) / step) * step;
+    }
+
+    function getCell(left, top) {
+        return {
+            col: Math.round((left - EDGE_X) / GRID_X),
+            row: Math.round((top - EDGE_Y) / GRID_Y)
+        };
+    }
+
+    function cellKey(col, row) {
+        return col + ":" + row;
+    }
+
+    function getOccupiedCells(excludeIcon = null) {
+        const occupied = new Set();
+
+        icons.forEach(icon => {
+            if (icon === excludeIcon) return;
+
+            const left = parseFloat(icon.style.left);
+            const top = parseFloat(icon.style.top);
+            if (!Number.isFinite(left) || !Number.isFinite(top)) return;
+
+            const cell = getCell(left, top);
+            occupied.add(cellKey(cell.col, cell.row));
+        });
+
+        return occupied;
+    }
+
+    // Busca la celda libre más cercana cuando el usuario suelta un icono.
+    function getNearestFreePosition(icon, desiredLeft, desiredTop) {
+        const desktopRect = desktop.getBoundingClientRect();
+        const maxLeft = Math.max(EDGE_X, desktopRect.width - icon.offsetWidth - EDGE_X);
+        const maxTop = Math.max(EDGE_Y, desktopRect.height - icon.offsetHeight - EDGE_Y);
+
+        let snappedLeft = gridValue(desiredLeft, GRID_X, EDGE_X);
+        let snappedTop = gridValue(desiredTop, GRID_Y, EDGE_Y);
+
+        snappedLeft = clamp(snappedLeft, EDGE_X, maxLeft);
+        snappedTop = clamp(snappedTop, EDGE_Y, maxTop);
+
+        let cell = getCell(snappedLeft, snappedTop);
+        const occupied = getOccupiedCells(icon);
+
+        if (!occupied.has(cellKey(cell.col, cell.row))) {
+            return { left: snappedLeft, top: snappedTop };
+        }
+
+        // Si la celda está ocupada, busca alrededor hasta encontrar otra libre.
+        for (let radius = 1; radius < 50; radius++) {
+            const candidates = [];
+
+            for (let dx = -radius; dx <= radius; dx++) {
+                for (let dy = -radius; dy <= radius; dy++) {
+                    if (Math.max(Math.abs(dx), Math.abs(dy)) !== radius) continue;
+
+                    const col = cell.col + dx;
+                    const row = cell.row + dy;
+                    if (col < 0 || row < 0) continue;
+
+                    const candidateLeft = clamp(EDGE_X + col * GRID_X, EDGE_X, maxLeft);
+                    const candidateTop = clamp(EDGE_Y + row * GRID_Y, EDGE_Y, maxTop);
+                    const candidateCell = getCell(candidateLeft, candidateTop);
+
+                    if (occupied.has(cellKey(candidateCell.col, candidateCell.row))) continue;
+
+                    const distance =
+                        Math.hypot(candidateLeft - snappedLeft, candidateTop - snappedTop);
+
+                    candidates.push({
+                        left: candidateLeft,
+                        top: candidateTop,
+                        distance
+                    });
+                }
+            }
+
+            if (candidates.length) {
+                candidates.sort((a, b) => a.distance - b.distance);
+                return candidates[0];
+            }
+        }
+
+        return { left: EDGE_X, top: EDGE_Y };
+    }
+
+    function applySavedPositions() {
+        icons.forEach(icon => {
+            const saved = positions[icon.classList[1]];
+            if (!saved || !Number.isFinite(saved.left) || !Number.isFinite(saved.top)) return;
+
+            const position = getNearestFreePosition(icon, saved.left, saved.top);
+            icon.style.left = position.left + "px";
+            icon.style.top = position.top + "px";
+            icon.style.right = "auto";
+        });
+    }
+
+    function savePosition(icon) {
+        const key = icon.classList[1];
+        if (!key) return;
+
+        positions[key] = {
+            left: parseFloat(icon.style.left) || EDGE_X,
+            top: parseFloat(icon.style.top) || EDGE_Y
+        };
+
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(positions));
+        } catch (e) {}
+    }
+
+    function selectIcon(icon) {
+        icons.forEach(item => item.classList.remove("selected"));
+        icon.classList.add("selected");
+    }
+
+    icons.forEach(icon => {
+        let pointerId = null;
+        let startX = 0;
+        let startY = 0;
+        let startLeft = 0;
+        let startTop = 0;
+        let dragging = false;
+
+        icon.addEventListener("pointerdown", function(event) {
+            if (event.button !== undefined && event.button !== 0) return;
+
+            pointerId = event.pointerId;
+            startX = event.clientX;
+            startY = event.clientY;
+
+            const rect = icon.getBoundingClientRect();
+            const desktopRect = desktop.getBoundingClientRect();
+
+            startLeft = rect.left - desktopRect.left;
+            startTop = rect.top - desktopRect.top;
+
+            icon.style.left = startLeft + "px";
+            icon.style.top = startTop + "px";
+            icon.style.right = "auto";
+
+            selectIcon(icon);
+            icon.setPointerCapture(pointerId);
+        });
+
+        icon.addEventListener("pointermove", function(event) {
+            if (pointerId !== event.pointerId) return;
+
+            const dx = event.clientX - startX;
+            const dy = event.clientY - startY;
+
+            if (!dragging && Math.hypot(dx, dy) < 5) return;
+
+            if (!dragging) {
+                dragging = true;
+                icon.classList.add("dragging");
+            }
+
+            const desktopRect = desktop.getBoundingClientRect();
+            const maxLeft = Math.max(0, desktopRect.width - icon.offsetWidth);
+            const maxTop = Math.max(0, desktopRect.height - icon.offsetHeight);
+
+            const newLeft = clamp(startLeft + dx, 0, maxLeft);
+            const newTop = clamp(startTop + dy, 0, maxTop);
+
+            // Durante el arrastre sigue libre; al soltar se ajusta a la cuadrícula.
+            icon.style.left = newLeft + "px";
+            icon.style.top = newTop + "px";
+            icon.style.right = "auto";
+        });
+
+        function finishPointer(event) {
+            if (pointerId !== event.pointerId) return;
+
+            if (dragging) {
+                const currentLeft = parseFloat(icon.style.left) || EDGE_X;
+                const currentTop = parseFloat(icon.style.top) || EDGE_Y;
+
+                // Ajusta automáticamente el icono a una posición ordenada
+                // y evita que quede pegado o encima de otro icono.
+                const finalPosition = getNearestFreePosition(
+                    icon,
+                    currentLeft,
+                    currentTop
+                );
+
+                icon.style.left = finalPosition.left + "px";
+                icon.style.top = finalPosition.top + "px";
+                icon.style.right = "auto";
+
+                icon.dataset.justDragged = "true";
+                savePosition(icon);
+            }
+
+            dragging = false;
+            icon.classList.remove("dragging");
+
+            try {
+                if (icon.hasPointerCapture(pointerId)) {
+                    icon.releasePointerCapture(pointerId);
+                }
+            } catch (e) {}
+
+            pointerId = null;
+        }
+
+        icon.addEventListener("pointerup", finishPointer);
+        icon.addEventListener("pointercancel", finishPointer);
+    });
+
+    // Evita que el arrastre genere un click accidental.
+    desktop.addEventListener("click", function(event) {
+        const icon = event.target.closest(".desktop-icon");
+        if (!icon) return;
+
+        if (icon.dataset.justDragged === "true") {
+            event.preventDefault();
+            event.stopPropagation();
+            icon.dataset.justDragged = "false";
+        }
+    }, true);
+
+    desktop.addEventListener("dblclick", function(event) {
+        const icon = event.target.closest(".desktop-icon");
+        if (!icon) return;
+
+        if (icon.dataset.justDragged === "true") {
+            event.preventDefault();
+            event.stopPropagation();
+            icon.dataset.justDragged = "false";
+        }
+    }, true);
+
+    // Click en el escritorio: quitar selección.
+    desktop.addEventListener("pointerdown", function(event) {
+        if (!event.target.closest(".desktop-icon")) {
+            icons.forEach(icon => icon.classList.remove("selected"));
+        }
+    });
+
+    // Recalcula la posición al cambiar el tamaño de la ventana.
+    window.addEventListener("resize", function() {
+        icons.forEach(icon => {
+            const currentLeft = parseFloat(icon.style.left);
+            const currentTop = parseFloat(icon.style.top);
+            if (!Number.isFinite(currentLeft) || !Number.isFinite(currentTop)) return;
+
+            const position = getNearestFreePosition(icon, currentLeft, currentTop);
+            icon.style.left = position.left + "px";
+            icon.style.top = position.top + "px";
+            icon.style.right = "auto";
+            savePosition(icon);
+        });
+    });
+
+    applySavedPositions();
+})();
+</script>
+
+</body>
+</html>
